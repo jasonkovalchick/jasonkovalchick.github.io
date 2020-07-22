@@ -1,0 +1,9 @@
+Version 1.0.2
+
+-comitted about, contact, and portfolio pages with working menus
+-compressed background image for faster load time
+-other small changes
+
+Version 1.0.1
+
+- Pushed landing page to master
