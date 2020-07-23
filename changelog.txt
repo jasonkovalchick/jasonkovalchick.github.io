@@ -1,3 +1,10 @@
+Version 1.0.3
+
+-populated the about and contact pages with basic content, subpages to come soon
+-added quick and simple animations to moving between some pages
+-changed CSS to work better on mobile, text gets larger and menu goes vertical
+-other small changes
+
 Version 1.0.2
 
 -comitted about, contact, and portfolio pages with working menus

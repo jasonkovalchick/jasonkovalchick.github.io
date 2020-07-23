@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Nodes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonkovalchick/jasonkovalchick.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonkovalchick/jasonkovalchick.github.io/issues"
+  },
+  "homepage": "https://github.com/jasonkovalchick/jasonkovalchick.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "swup": "^2.0.11"
+  }
+}
