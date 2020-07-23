@@ -1,3 +1,10 @@
+Version 1.0.4
+-rewrite CSS and HTML so it isn't rubbish and can be updated in the future
+-fixed formatting for mobile so it isn't trash and is actually kind of nice
+
+Version 1.0.3.X
+-fixed loading of fonts and swup in the head, was causing animations not to load and errors to happen
+
 Version 1.0.3
 
 -populated the about and contact pages with basic content, subpages to come soon
