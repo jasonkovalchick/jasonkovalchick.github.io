@@ -1,3 +1,7 @@
+Version 1.0.4.1
+-fixed media queries to work better with laptop screens (shorter) and all 
+ around work better on more screens
+
 Version 1.0.4
 -rewrite CSS and HTML so it isn't rubbish and can be updated in the future
 -fixed formatting for mobile so it isn't trash and is actually kind of nice
