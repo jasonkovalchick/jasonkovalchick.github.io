@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jasonkovalchick/jasonkovalchick.github.io#readme",
   "dependencies": {
     "jquery": "^3.5.1",
+    "simplebar": "^5.2.1",
     "swup": "^2.0.11"
   }
 }

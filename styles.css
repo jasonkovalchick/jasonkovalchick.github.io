@@ -8,7 +8,7 @@
   *  {
     margin: 0;
     padding: 0;
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 
@@ -16,7 +16,7 @@
   *  {
     margin: 0;
     padding: 0;
-    font-size: 13px;
+    font-size: 11px;
   }
 }
 
@@ -24,15 +24,15 @@
   *  {
     margin: 0;
     padding: 0;
-    font-size: 11px;
+    font-size: 9px;
   }
 }
 
-@media (max-height: 300px) {
+@media (max-height: 350px) {
   *  {
     margin: 0;
     padding: 0;
-    font-size: 9px;
+    font-size: 7px;
   }
 }
 
@@ -56,7 +56,7 @@
 
     --li-order: inline-flexbox;
     --li-text-size: 3rem;
-    --header-size: 20rem;
+    --header-size: 28rem;
 
     --middle-margin-top: 15vh;
   }
@@ -64,7 +64,32 @@
 
 body {
   overflow-x: hidden;
+} 
+
+/* Chad Firefox */
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: rgb(222, 233, 238) grey;
+  display: inline-block;
+  scrollbar-width: thin;
 }
+
+/* Scroll for everyone but Firefox */
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(222, 233, 238);
+}
+
 
 .container {
   display: grid;
@@ -72,6 +97,7 @@ body {
 
   /* border: 1px solid red; */
 }
+
 
 .overlay-gradient {
   position: absolute;
@@ -87,13 +113,14 @@ body {
   position: absolute;
   display: block;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   z-index: -5;
 
   /* border: 1px solid blue; */
 
 }
+
 
 .menu {
   height: var(--header-size);
@@ -117,23 +144,65 @@ body {
   list-style: none;
   margin-left: 4rem;
   margin-right: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
 
   /* border: 1px solid blue; */
 }
 .menu ul li a {
+  text-decoration: none;
   font-weight: 100;
   font-size: var(--li-text-size);
   font-family: 'Roboto Slab', serif;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 3px rgb(13, 21, 27);
 
-  padding: 0.5rem;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+
+  transition-duration: 0.5s; 
+  -webkit-transition: all 1s ease; 
+  -moz-transition: all 1s ease; 
+  -o-transition: all 1s ease; 
+  -ms-transition: all 1s ease; 
+  transition: all 0.5s ease; 
 
   /* border: 1px solid red; */
 }
 
+.menu ul li a:hover {
+  color: rgb(162, 170, 173);
+}
+
+.menu ul li img {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+  display: block;
+  object-fit: cover;
+
+  transition-duration: 0.45s; 
+  -webkit-transition: all 1s ease; 
+  -moz-transition: all 1s ease; 
+  -o-transition: all 1s ease; 
+  -ms-transition: all 1s ease; 
+  transition: all 0.45s ease; 
+
+  z-index: 1;
+
+  /* border: 1px solid red; */
+}
+
+.menu ul li img:hover {
+  transform: scale(1.15);
+}
+
 .menu ul li a.strong {
   color: rgb(162, 170, 173);
+}
+
+.menu-active {
+  border-bottom: .21rem solid rgb(162, 170, 173);
 }
 
 
@@ -218,7 +287,7 @@ footer {
   align-items: center;
   display: flex;
 
-
+  z-index: 1;
 }
 
 footer a {

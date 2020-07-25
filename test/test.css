@@ -1,0 +1,22 @@
+
+
+.container {
+
+    width: 50%;
+}
+
+.container h1 {
+    font-size: 75px;
+}
+
+.container p {
+    font-size: 50px;
+}
+
+.simplebar-scrollbar::before {
+    background-color: blue;
+}
+
+.simplebar-scrollbar {
+    margin: 50px;
+}
