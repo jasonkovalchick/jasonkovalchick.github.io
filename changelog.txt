@@ -1,3 +1,12 @@
+Version 1.0.6
+-media queries work great this time I promise they will work on 99% of devices
+-small updates to every page except "portfolio", cleaned up HTML a little
+    -added 'Softwares' portion to my "about" page
+        -created sub-stylesheet for "about" page
+    -cleaned up "contact" page with better formatting
+    -added more variables to stylesheet so expanding website will be easier and 
+     changes to theme will be simple (dark theme???)
+
 Version 1.0.5
 -continued refining media queries
 -added links to the home page for my social media

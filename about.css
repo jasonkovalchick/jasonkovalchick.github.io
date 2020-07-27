@@ -1,0 +1,74 @@
+.software-graph {
+    max-width: 100vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: var(--li-order);
+    flex-direction: row;
+
+    padding: 0rem 5rem 0rem 5rem;
+
+    /* border: 1px solid red; */
+}
+
+.software-graph ul {
+    width: auto;
+    margin: 3rem 1rem 1rem 1rem;
+
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+
+
+    /* border: 1px solid blue; */
+}
+
+.software-graph ul h2 a {
+    font-size: var(--h2-text-size);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--h2-text-color);
+    
+    /* border: 1px solid blue; */
+}
+
+
+.software-graph ul ul {
+    display: inline-flex;
+
+    width: fit-content;
+
+    border-radius: 2rem;
+    border: 0.25rem solid white;
+
+}
+
+
+.software-graph ul ul li {
+    list-style: none;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    /* border: 1px solid red; */
+}
+
+.software-img {
+    position: relative;
+    
+    height: 5rem;
+    object-fit: fill;
+
+    transition-duration: 0.45s; 
+    -webkit-transition: all 1s ease; 
+    -moz-transition: all 1s ease; 
+    -o-transition: all 1s ease; 
+    -ms-transition: all 1s ease; 
+    transition: all 0.45s ease; 
+}
+
+.software-img:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0px 0px 0.5rem rgb(34, 34, 34));
+}

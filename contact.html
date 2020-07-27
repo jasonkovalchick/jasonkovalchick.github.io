@@ -2,10 +2,10 @@
 <html>
 <head>
     
-    <script defer src="node_modules/swup/dist/swup.min.js"> </script>
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="script.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Slab:wght@500;700&display=swap">
@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <div class="overlay-gradient"></div>
-            <img src="assets\photoshopblurgrayscalelowres.jpg" alt="">
+            <img class="bg-image" src="assets\photoshopblurgrayscalelowres.jpg" alt="">
                 <nav>
                     <div id="swup" class="menu transition-fade">
                         <ul>
@@ -31,8 +31,13 @@
                 <div class="top-end">
                     <div class="title-name">
                         <h1><u>Contact Me.</u></h1>
-                        <h2> <a class="mail" href="mailto:jasonkovalchickbusiness@gmail.com"><u>jasonkovalchickbusiness@gmail.com</u></a></h2>
-                        <h2> <a class="mail" href="mailto:jasonkovalchick@psu.edu"><u>jasonkovalchick@psu.edu</u></a></h2>
+                        <ul class="mail">
+                            <li><h2> <a href="mailto:jasonkovalchickbusiness@gmail.com"><u>jasonkovalchickbusiness@gmail.com</u></a></h2></li>
+                            <li><h2> <a href="mailto:jasonkovalchick@psu.edu"><u>jasonkovalchick@psu.edu</u></a></h2></li>
+                        </ul>
+                        <p> Feel free to contant me at either email, I check them both.
+                            Though for personal inqueries send those to the first email.
+                        </p>
                     </div>
                 </div>
                 <footer>
