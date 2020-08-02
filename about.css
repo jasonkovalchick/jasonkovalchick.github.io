@@ -24,9 +24,9 @@
 }
 
 .software-graph ul h2 a {
-    font-size: var(--h2-text-size);
+    font-size: var(--p-text-size);
     font-family: 'Open Sans', sans-serif;
-    color: var(--h2-text-color);
+    color: var(--p-text-color);
     
     /* border: 1px solid blue; */
 }
@@ -38,7 +38,7 @@
     width: fit-content;
 
     border-radius: 2rem;
-    border: 0.25rem solid white;
+    border: 0.3rem solid white;
 
 }
 
@@ -61,10 +61,10 @@
     object-fit: fill;
 
     transition-duration: 0.45s; 
-    -webkit-transition: all 1s ease; 
-    -moz-transition: all 1s ease; 
-    -o-transition: all 1s ease; 
-    -ms-transition: all 1s ease; 
+    -webkit-transition: all 0.45s ease; 
+    -moz-transition: all 0.45s ease; 
+    -o-transition: all 0.45s ease; 
+    -ms-transition: all 0.45s ease; 
     transition: all 0.45s ease; 
 }
 

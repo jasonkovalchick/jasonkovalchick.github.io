@@ -1,3 +1,11 @@
+Version 1.0.6.2
+-actually fixed stylesheet issue caused by swup.js, needed the head plugin as the head was not upadating after animations
+-added basic favicon and fixed various issues
+-added more meta tags and alt text for SEO
+
+Version 1.0.6.1
+-hotfix fixed stylesheet for "about" needed to be below main stylesheet
+
 Version 1.0.6
 -media queries work great this time I promise they will work on 99% of devices
 -small updates to every page except "portfolio", cleaned up HTML a little

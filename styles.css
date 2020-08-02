@@ -95,13 +95,14 @@ body {
 
 /* Chad Firefox */
 
-.scroll {
+html {
   overflow-x: hidden;
   overflow-y: scroll;
   scrollbar-color: rgb(222, 233, 238) grey;
   display: inline-block;
   scrollbar-width: thin;
 }
+
 
 /* Scroll for everyone but Firefox */
 
@@ -156,9 +157,11 @@ body {
 .menu {
   height: var(--header-size);
   max-width: 100%;
+
   text-align: center;
   justify-content: center;
   align-items: center;
+
   display: flex;
   padding-top: var(--middle-margin-top);
 
@@ -188,15 +191,14 @@ body {
   font-size: var(--li-text-size);
   font-family: 'Roboto Slab', serif;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 3px rgb(13, 21, 27);
 
   padding: 0.5rem 0.25rem 0.25rem 0.25rem;
 
   transition-duration: 0.5s; 
-  -webkit-transition: all 1s ease; 
-  -moz-transition: all 1s ease; 
-  -o-transition: all 1s ease; 
-  -ms-transition: all 1s ease; 
+  -webkit-transition: all 0.5s ease; 
+  -moz-transition: all 0.5s ease; 
+  -o-transition: all 0.5s ease; 
+  -ms-transition: all 0.5s ease; 
   transition: all 0.5s ease; 
 
   /* border: 1px solid red; */
@@ -214,10 +216,10 @@ body {
   object-fit: cover;
 
   transition-duration: 0.45s; 
-  -webkit-transition: all 1s ease; 
-  -moz-transition: all 1s ease; 
-  -o-transition: all 1s ease; 
-  -ms-transition: all 1s ease; 
+  -webkit-transition: all 0.45s ease; 
+  -moz-transition: all 0.45s ease; 
+  -o-transition: all 0.45s ease; 
+  -ms-transition: all 0.45s ease; 
   transition: all 0.45s ease; 
 
   z-index: 1;
@@ -234,7 +236,7 @@ body {
 }
 
 .menu-active {
-  border-bottom: .21rem solid rgb(162, 170, 173);
+  border-bottom: .32rem solid rgb(162, 170, 173);
 }
 
 
@@ -343,7 +345,7 @@ body {
 .item-content p {
   font-size: var(--p-text-size);
   color: var(--p-text-color);
-  padding: 3rem 0 1rem 0;
+  padding: 3rem 10rem 1rem 10rem;
   text-align: left;
 }
 
@@ -354,7 +356,7 @@ body {
 }
 
 .mail u {
-  color: rgb(162,170,173);
+  color: var(--p-text-color);
   font-size: var(--h2-text-size);
 }
 
