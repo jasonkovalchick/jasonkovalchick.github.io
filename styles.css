@@ -82,7 +82,7 @@
 
     --li-order: inline-grid;
     --li-text-size: 3rem;
-    --header-size: 28rem;
+    --header-size: 22rem;
 
     --middle-margin-top: 5rem;
   }
@@ -123,7 +123,6 @@ html {
   display: grid;
   width: 100vw;
 
-
   /* border: 1px solid red; */
 }
 
@@ -139,6 +138,7 @@ html {
 }
 
 .bg-image {
+
   position: absolute;
   display: block;
   width: 100vw;
@@ -146,7 +146,9 @@ html {
   object-fit: cover;
   z-index: -5;
 
-  background-clip: padding-boxs;
+  background-size: 100%;
+  background-position: center center;
+  background-clip: no-clip;
   background-repeat: no-repeat;
 
   /* border: 1px solid blue; */
@@ -185,6 +187,7 @@ html {
 
   /* border: 1px solid blue; */
 }
+
 .menu ul li a {
   text-decoration: none;
   font-weight: 100;
@@ -262,7 +265,7 @@ html {
 }
 
 .title-name {
-  height: auto;
+  height: 40%;
   width: 75%;
 
   display: flex;
@@ -271,7 +274,7 @@ html {
   position: relative;
   text-align: center;
 
-  padding: 5rem 0 12rem 0;
+  padding: 6rem 0 12rem 0;
   /* border: 1px solid purple; */
 }
 
@@ -345,7 +348,7 @@ html {
 .item-content p {
   font-size: var(--p-text-size);
   color: var(--p-text-color);
-  padding: 3rem 10rem 1rem 10rem;
+  padding: 3rem 5rem 1rem 5rem;
   text-align: left;
 }
 
@@ -392,6 +395,11 @@ html.is-animating .transition-fade {
   opacity: 0;
 }
 
+.transition-fade-port {
+  transition: .55s;
+  opacity: 1;
+}
+
 
 .nav-fade {
   transition: 2.75s cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -404,6 +412,13 @@ html.is-animating .nav-fade {
   transform: translateY(-25px);
 }
 
+.transition-wipe {
+  transition: .55s;
+}
+
+html.is-animating .transition-wipe {
+  transform: translateX(50px);
+}
 
 
 /* .transition-wipe {

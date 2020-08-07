@@ -3,14 +3,16 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width; target-densityDpi=device-dpi;" />
     <meta name="robots" content="index, follow" />
 
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-    <script src="Scripts/SwupHeadPlugin.min.js"></script>  
+    <script defer src="Scripts/anime.min.js"></script>
+
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script defer src="Scripts/barba-transitions.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="Scripts/script.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Slab:wght@500;700&display=swap">
     
@@ -25,12 +27,15 @@
     <meta name="description" content="Online Porfolio of Jason Kovlachick, Student Engineer at Penn State University">
 
 </head>
-    <body>
-        <div class="container">
+    <body data-barba="wrapper">
+        <div class="container" data-barba="container" data-barba-namespace="index">
             <div class="overlay-gradient"></div>
-            <img class="bg-image" src="assets\photoshopblurgrayscalelowres.jpg" alt="">
+            <div>
+                <img class="bg-image" src="assets\photoshopblurgrayscalelowres.jpg" alt="background image">
+            </div>
+            
                 <nav>
-                    <div id="swup" class="menu transition-fade">
+                    <div class="menu">
                         <ul>
                             <li><a class="menu-active strong" href="/index.html">home</a></li>
                             <li><a href="/about.html">about</a></li>
@@ -39,23 +44,24 @@
                         </ul>
                     </div>
                 </nav>
-            <div id="swup" class="content transition-fade">
+            <div class="content">
                 <div class="top-end">
                     <div class="title-name">
                         <h1><u>Jason Kovalchick</u>.</h1>
                         <h2>Architectural Engineer (Penn State '25) | Creative | Runner & Tech Enthusiast</h2>
                         <div class="menu">
-                            <ul>
+                            <ul class="menu-horizontal">
                                 <li><a href="https://www.linkedin.com/in/jason-kovalchick-b29487199/" target="_blank"><img src="assets\LinkedIn-Logos\LinkedIn-Logos\LI-In-Bug-c.png" alt="linkedin logo"></a></li>
                                 <li><a href="https://github.com/jasonkovalchick" target="_blank"><img src="assets\GitHub-Mark\GitHub-Mark\PNG\GitHub-Mark-Light-120px-plus.png" alt="github logo"></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <footer>
-                    <u><a href="https://github.com/jasonkovalchick" target="_blank">Designed by me.</a></u>
-                </footer>
+
             </div>
+            <footer>
+                <u><a href="https://github.com/jasonkovalchick" target="_blank">Designed by me.</a></u>
+            </footer>
         </div>
     </body>
 </html>

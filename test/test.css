@@ -1,4 +1,6 @@
-
+* {
+    background-color: black;
+}
 
 .container {
 
@@ -19,4 +21,9 @@
 
 .simplebar-scrollbar {
     margin: 50px;
+}
+
+.square {
+    height: auto;
+    width: auto;
 }

@@ -10,16 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/jasonkovalchick/jasonkovalchick.github.io.git"
   },
-  "author": "",
+  "author": "Jason Kovalchick",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jasonkovalchick/jasonkovalchick.github.io/issues"
   },
   "homepage": "https://github.com/jasonkovalchick/jasonkovalchick.github.io#readme",
   "dependencies": {
-    "@swup/head-plugin": "^1.0.2",
-    "jquery": "^3.5.1",
-    "simplebar": "^5.2.1",
-    "swup": "^2.0.11"
+    "@barba/core": "^2.9.7",
+    "animejs": "^3.2.0",
+    "jquery": "^3.5.1"
   }
 }

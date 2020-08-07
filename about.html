@@ -3,14 +3,16 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width; target-densityDpi=device-dpi;" />
     <meta name="robots" content="noindex, nofollow" />
 
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-    <script src="Scripts/SwupHeadPlugin.min.js"></script>   
+    <script defer src="Scripts/anime.min.js"></script>
+
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script defer src="Scripts/barba-transitions.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="Scripts/script.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Slab:wght@500;700&display=swap">
 
@@ -25,12 +27,14 @@
     <title>About</title>
 
 </head>
-    <body>
-        <div class="container">
+    <body data-barba="wrapper">
+        <div class="container" data-barba="container" data-barba-namespace="about">
             <div class="overlay-gradient"></div>
-            <img class="bg-image" src="assets\photoshopblurgrayscalelowres.jpg" alt="">
+            <div>
+                <img class="bg-image" src="assets\photoshopblurgrayscalelowres.jpg" alt="background image">
+            </div>
                 <nav>
-                    <div id="swup" class="menu transition-fade">
+                    <div class="menu">
                         <ul>
                             <li><a href="/index.html">home</a></li>
                             <li><a class="menu-active strong" href="/about.html">about</a></li>
@@ -39,7 +43,7 @@
                         </ul>
                     </div>
                 </nav>
-            <div id="swup" class="content transition-fade">
+            <div class="content">
                 <div class="top-end">
                     <div class="title-name">
                         <h1>Q<u>uick Start</u>.</h1>
@@ -56,7 +60,7 @@
                 <div name="opening" class="item-content">
                     <div>
                         <h2>Software Skills</h2>
-                        <p> Over the years, through schooling and self-teaching I have come to learn quite a few profesional
+                        <p> Over the years, through schooling and self-teaching I have come to learn quite a few professional
                             softwares.  Aside from the Autodesk Products, which I learned in school, the rest of the softwares
                             I have spent the last 5 years learning on my own.  While personal projects have been the main focus
                             picking up software skills I have also used them to supplement school and competition projects.
@@ -90,11 +94,10 @@
     
                     </div>
                 </div>
-                
-                <footer>
-                    <u><a href="https://github.com/jasonkovalchick" target="_blank">Designed by me.</a></u>
-                </footer>
-            </div>
+            </div>        
+            <footer>
+                <u><a href="https://github.com/jasonkovalchick" target="_blank">Designed by me.</a></u>
+            </footer>
         </div>
     </body>
 </html>

@@ -1,5 +1,14 @@
+Version 1.0.7
+-added content to the "portfolio" page
+    -created a "blender" page and started a template for it
+-removed swup from project, intend to add barba.js and anime.js to replace
+    -that will happen after all pages have been populated
+
+Version 1.0.6.3
+-fixed meta tag for device scale, was breaking mobile views
+
 Version 1.0.6.2
--actually fixed stylesheet issue caused by swup.js, needed the head plugin as the head was not upadating after animations
+-fixed stylesheet issue caused by swup.js, needed the head plugin as the head was not upadating after animations
 -added basic favicon and fixed various issues
 -added more meta tags and alt text for SEO
 
