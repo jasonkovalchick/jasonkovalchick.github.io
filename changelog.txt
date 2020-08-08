@@ -1,3 +1,7 @@
+Version 1.0.7.1
+-finished template for portfolio pages
+    -completed "Blender" page
+
 Version 1.0.7
 -added content to the "portfolio" page
     -created a "blender" page and started a template for it

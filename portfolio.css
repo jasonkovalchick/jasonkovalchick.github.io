@@ -155,8 +155,15 @@
   filter: drop-shadow(0 0 2.5rem #000000);
 }
 
+.title-photo video {
+  width: 75%;
+  border-radius: 5rem;
+
+  filter: drop-shadow(0 0 2.5rem #000000);
+}
+
 .proj-info {
-  padding: 1rem 12.5% 2rem 12.5%;
+  padding: 1rem 12.5% 0rem 12.5%;
 }
 
 .proj-info h1 {
@@ -177,5 +184,5 @@
 
 .proj-images img{
   width: var(--image-width);
-  padding: 0;
+  padding: 2rem 0 0 0;
 }
