@@ -146,6 +146,7 @@
   height: auto;
 
   padding: 5rem 0rem 5rem 0rem;
+
 }
 
 .title-photo img {
@@ -182,7 +183,15 @@
   color: white;
 }
 
+.proj-images {
+  display: inline;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
 .proj-images img{
   width: var(--image-width);
   padding: 2rem 0 0 0;
+
 }

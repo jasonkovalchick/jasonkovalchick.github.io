@@ -1,3 +1,7 @@
+Version 1.0.7.2
+-populated more of the portfolio pages
+    -completed "Adobe" and "CAD" pages
+
 Version 1.0.7.1
 -finished template for portfolio pages
     -completed "Blender" page

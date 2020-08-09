@@ -318,6 +318,12 @@ html {
   color: rgb(162,170,173);
 }
 
+.content a {
+  font-weight: 500;
+  font-size: var(--p-text-size);
+  font-family: 'Roboto Slab', serif;
+  color: rgb(233, 235, 255);
+}
 .more-below {
   opacity: 50%;
 
