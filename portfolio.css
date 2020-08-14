@@ -183,13 +183,6 @@
   color: white;
 }
 
-.proj-images {
-  display: inline;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
 .proj-images img{
   width: var(--image-width);
   padding: 2rem 0 0 0;
