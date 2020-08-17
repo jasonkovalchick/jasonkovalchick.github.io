@@ -1,3 +1,7 @@
+Version 1.0.7.3.1
+-added items to storefront
+-fixed subdomain redirect
+
 Version 1.0.7.3
 -removed the "Desinged by Me" from footer
 -added a test storefront
