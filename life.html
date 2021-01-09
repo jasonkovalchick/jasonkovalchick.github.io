@@ -35,17 +35,19 @@
 </head>
 
 <body>
-    <main id="background" style="background-color: #ffffff; width: 100vw; height: 100vh; padding: 0; margin: 0;">
-        <div class="items">
-            <h1>Age</h1>
-            <input type="date" id="dateInput">
-            <button type="button" id="colorSolver"> Go </button>
-            <p>This updates every minute so feel free to set and forget!</p>
-        </div>
+    <div id="background" class="background" style="background-color: #ffffff; width: 100vw; height: 100vh; padding: 0; margin: 0;">
+    </div>
+    <div class="content">
         <div class="hex">
             <p id="hex">#000000</p>
         </div>
-    </main>
+    </div>
+    <div class="items" id="items">
+        <h1>Birthday</h1>
+        <input type="date" id="dateInput">
+        <button type="button" id="colorSolver"> Go </button>
+        <p>This updates every minute so feel free to set and forget!</p>
+    </div>
 </body>
 
 <script src="Scripts/life.js"></script>

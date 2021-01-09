@@ -1,10 +1,11 @@
 const colorSolver = document.getElementById("colorSolver");
 const background = document.getElementById("background");
 const hex = document.getElementById("hex");
+const menuInput = document.getElementById("items");
 
 function findColor() {
-    let serialDate = document.getElementById("dateInput").value;
     let today = new Date()
+    let serialDate = document.getElementById("dateInput").value;
 
     let todayDate = Date.parse(today)-Date.parse(serialDate);
     let deathDate = (80*3.15576e10);
@@ -13,9 +14,7 @@ function findColor() {
 
     background.style.backgroundColor = `#${hexColor}`;
 
-    var menuItems = document.getElementsByClassName("items");
-    menuItems[0].parentNode.removeChild(menuItems[0]);
-
+    menuInput.style.zIndex = "-2";
     hex.innerHTML = `#${hexColor}`;
 
     console.log(hexColor);

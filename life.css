@@ -5,10 +5,24 @@
     font-family: 'Open Sans', sans-serif;
   }
 
+.background {
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 100vw;
+}
+
 .items {
+  position: absolute;
+  top: 0;
   padding: 3%;
   width: 90%;
   float: left;
+  z-index: 1;
 }
 
 .hex {
