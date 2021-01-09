@@ -1,0 +1,25 @@
+*  {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+.items {
+  padding: 3%;
+  width: 90%;
+  float: left;
+}
+
+.hex {
+  z-index: 1;
+}
+
+.hex p {
+  position: absolute;
+  float: right;
+  padding: 1.5% 2%;
+  right: 0;
+  color: white;
+  opacity: 66%;
+}

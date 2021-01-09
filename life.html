@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176743720-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-176743720-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; target-densityDpi=device-dpi;" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script defer src="Scripts/script.js"></script> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Slab:wght@500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="life.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Favicon/site.webmanifest">
+    
+
+    <title>Color of My Age</title>
+    <meta name="description" content="Online Porfolio of Jason Kovlachick, Student Engineer at Penn State University">
+    <meta property="og:image" content="https://github.com/jasonkovalchick/jasonkovalchick.github.io/blob/master/assets/portfolio%20assets/profilerichcontent/newprofilepicturecrop.png?raw=true">
+
+</head>
+
+<body>
+    <main id="background" style="background-color: #ffffff; width: 100vw; height: 100vh; padding: 0; margin: 0;">
+        <div class="items">
+            <h1>Age</h1>
+            <input type="date" id="dateInput">
+            <button type="button" id="colorSolver"> Go </button>
+            <p>This updates every minute so feel free to set and forget!</p>
+        </div>
+        <div class="hex">
+            <p id="hex">#000000</p>
+        </div>
+    </main>
+</body>
+
+<script src="Scripts/life.js"></script>
