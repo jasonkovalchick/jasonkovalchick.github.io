@@ -1,0 +1,26 @@
+.top-end {
+    background-color: #001E44;
+    height: 100vh;
+}
+
+.menu ul {
+    display: block;
+}
+
+.menu ul li {
+    padding: 2rem 1rem 0rem 1rem;
+}
+
+.menu ul li a {
+    font-size: 4rem;
+    color: white;
+    text-decoration: underline;
+}
+
+.menu ul li:hover {
+    color: rgb(162, 170, 173);
+    transform: scale(1.25);
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(.45,.1,.52,.97);
+}
+
