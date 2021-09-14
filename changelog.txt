@@ -1,3 +1,6 @@
+Version 1.0.8
+-added a "link tree" landing page for nfc tags and qr codes
+
 Version 1.0.7.7
 -404 error and htaccess
 
