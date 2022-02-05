@@ -1,3 +1,9 @@
+Version 1.0.8.2
+-small updates
+
+Version 1.0.8.1
+-small updates
+
 Version 1.0.8
 -added a "link tree" landing page for nfc tags and qr codes
 
