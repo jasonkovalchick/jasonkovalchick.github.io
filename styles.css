@@ -319,6 +319,15 @@ html {
   color: rgb(162,170,173);
 }
 
+.content .caption {
+  color: white;
+  font-size: calc(var(--p-text-size)*.75);
+  padding: 0rem 17.5% 0rem 17.5%;
+  text-align: center;
+ 
+  
+}
+
 .content a {
   font-weight: 500;
   font-size: var(--p-text-size);
@@ -358,6 +367,8 @@ html {
   padding: 3rem 5rem 1rem 5rem;
   text-align: left;
 }
+
+
 
 .mail {
   text-decoration: none;

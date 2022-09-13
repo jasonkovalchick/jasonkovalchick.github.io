@@ -1,3 +1,7 @@
+Version 1.0.8.3
+-updated with current finished projects
+-reworded some entries
+
 Version 1.0.8.2
 -small updates
 
