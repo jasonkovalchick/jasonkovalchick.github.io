@@ -1,3 +1,9 @@
+Version 1.0.9
+-setting up framework for new website and blog, will move to version 1.1
+    -blog and website should be accessible to most people
+-file extension .html no longer appears for most webpages
+-cleaned up the files and scripts across most webpages
+
 Version 1.0.8.3
 -updated with current finished projects
 -reworded some entries
