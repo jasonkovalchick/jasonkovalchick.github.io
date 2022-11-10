@@ -1,3 +1,10 @@
+Version 1.0.9.2
+-framework is nearly complete
+-blog is now live with first post
+-there are known bugs and issues, none are website breaking though, user experience is still preserved
+-will continue on updating rest of website to match style and be more accessible
+-when all of the above is complete plan plan to update naming to Version 1.1
+
 Version 1.0.9.1
 -keep copy of index.html for convenience until search engines pickup
 

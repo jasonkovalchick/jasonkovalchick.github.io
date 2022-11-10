@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="font-size: 100%;" id="root">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176743720-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-176743720-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow" />
+
+    <script defer src="/Scripts/script.js"></script>
+    <script async src="/Scripts/settings.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto+Mono:ital@0;1&family=Ubuntu:ital@0;1&display=swap" rel="stylesheet"> 
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="/Favicon/site.webmanifest">
+
+    <link rel="stylesheet" type="text/css" href="/blog/blog.css">
+
+    <title>Role of ML and it’s Potential for Architectural Design</title>
+
+</head>
+
+<button class="settings-cog" id="settings-cog" tabindex=0 aria-label="settings cog for font, theme, and font size">
+    <svg aria-label="settings cog svg" class="cog-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><title>Settings Menu</title><path fill="none" d="M0 0h24v24H0z"/><path d="M3.34 17a10.018 10.018 0 0 1-.978-2.326 3 3 0 0 0 .002-5.347A9.99 9.99 0 0 1 4.865 4.99a3 3 0 0 0 4.631-2.674 9.99 9.99 0 0 1 5.007.002 3 3 0 0 0 4.632 2.672c.579.59 1.093 1.261 1.525 2.01.433.749.757 1.53.978 2.326a3 3 0 0 0-.002 5.347 9.99 9.99 0 0 1-2.501 4.337 3 3 0 0 0-4.631 2.674 9.99 9.99 0 0 1-5.007-.002 3 3 0 0 0-4.632-2.672A10.018 10.018 0 0 1 3.34 17zm5.66.196a4.993 4.993 0 0 1 2.25 2.77c.499.047 1 .048 1.499.001A4.993 4.993 0 0 1 15 17.197a4.993 4.993 0 0 1 3.525-.565c.29-.408.54-.843.748-1.298A4.993 4.993 0 0 1 18 12c0-1.26.47-2.437 1.273-3.334a8.126 8.126 0 0 0-.75-1.298A4.993 4.993 0 0 1 15 6.804a4.993 4.993 0 0 1-2.25-2.77c-.499-.047-1-.048-1.499-.001A4.993 4.993 0 0 1 9 6.803a4.993 4.993 0 0 1-3.525.565 7.99 7.99 0 0 0-.748 1.298A4.993 4.993 0 0 1 6 12c0 1.26-.47 2.437-1.273 3.334a8.126 8.126 0 0 0 .75 1.298A4.993 4.993 0 0 1 9 17.196zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="rgba(0,0,0,1)"/></svg>
+</button>
+<div class="settings-cog-menu" aria-hidden="true" aria-label="website appeareance settings menu" id="settings-menu" style="visibility: hidden;">
+</div>
+<header>
+    <div class="header-content-box">
+        <h1>Jason Kovalchick</h1>
+        <div class="header-menu">
+            <a href="/blog/">blog</a>
+            <a href="/about/">about</a>
+            <a href="/contact/">contact</a>
+            <a href="/portfolio/">portfolio</a>
+            <!-- <a href="">resume</a>
+            <a href="">info</a> -->
+            </div>
+    </div>
+    <div class="header-extra-box" id="extra-box">
+        <p></p>
+    </div>
+</header>
+<body>
+
+    <main>
+        <section class="post-header">
+            <div class="img">
+                <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-drone-shot.jpg" alt="Stable Diffusion output of Old Main at Penn State as if it was a photo from a drone">
+                <p class="caption">Stable Diffusion output of Old Main at Penn State as if it was a photo from a drone.</p>
+            </div>
+
+        </section>
+
+        <section class="post-content">
+            <h1 id="post-title">Role of ML and it’s Potential for Architectural Design</h1>
+            <div class="date-time-socialtags">
+                <p class="date-time">10 November 2022</p>
+                <div class="socialtags">
+                    <button aria-label="button to copy to clipboard" tabindex="0">
+                        <svg aria-label="svg of a paperclip" title="copy to clipboard" id="copy-to-clip" onClick="copyToClip()" aria-hidden="true" data-prefix="fal" data-icon="paperclip" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Copy to Clipboard</title><path fill="currentColor" d="M149.106 512c-33.076 0-66.153-12.59-91.333-37.771-50.364-50.361-50.364-132.305-.002-182.665L319.842 29.498c39.331-39.331 103.328-39.331 142.66 0 39.331 39.332 39.331 103.327 0 142.657l-222.63 222.626c-28.297 28.301-74.347 28.303-102.65 0-28.3-28.301-28.3-74.349 0-102.649l170.301-170.298c4.686-4.686 12.284-4.686 16.97 0l5.661 5.661c4.686 4.686 4.686 12.284 0 16.971l-170.3 170.297c-15.821 15.821-15.821 41.563.001 57.385 15.821 15.82 41.564 15.82 57.385 0l222.63-222.626c26.851-26.851 26.851-70.541 0-97.394-26.855-26.851-70.544-26.849-97.395 0L80.404 314.196c-37.882 37.882-37.882 99.519 0 137.401 37.884 37.881 99.523 37.882 137.404.001l217.743-217.739c4.686-4.686 12.284-4.686 16.97 0l5.661 5.661c4.686 4.686 4.686 12.284 0 16.971L240.44 474.229C215.26 499.41 182.183 512 149.106 512z" class=""></path></svg>
+                    </button>
+                    <button aria-label="button to article on substack" tabindex="0">
+                        <a href=""><svg aria-label="svg of substack logo" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Substack</title><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+                    </button>
+                    <button aria-label="button to share to twitter" tabindex="0" onClick="openToTwitter()">
+                        <svg aria-label="svg of twitter logo" viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg"><title>Share to Twitter</title><path  fill="currentColor" d="M 630, 425A 195, 195 0 0 1 331, 600A 142, 142 0 0 0 428, 570A  70,  70 0 0 1 370, 523A  70,  70 0 0 0 401, 521A  70,  70 0 0 1 344, 455A  70,  70 0 0 0 372, 460A  70,  70 0 0 1 354, 370A 195, 195 0 0 0 495, 442A  67,  67 0 0 1 611, 380A 117, 117 0 0 0 654, 363A  65,  65 0 0 1 623, 401A 117, 117 0 0 0 662, 390A  65,  65 0 0 1 630, 425Z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <p>This will be one of probably many posts as this technology advances and more use cases can be easily shown off. </p>
+            <p>Many are completely unaware of the revolution happening in machine learning and how it is going to effect every creative industry over the next couple of years. This is not limited to strictly creative professions such as movie makers, artists, and novelty (and absurd) NFT makers. ML tools that can take a prompt of text and output an image/animation/3d model/audio or edit any of those into any of the others. This will reshape how engineers communicate to; clients, contractors out in the field, and to the public about how the buildings we design will look and function.</p>
+            <h2>Communication in Architectural Design and Engineering</h2>
+            <p>When a building is in its infancy an architecture firm is contracted to work with the client/clients and stakeholders to design something appreciable and useful for them. From there the architecture firm works with engineering companies and consultants to flesh out the architects plan and collaborate until everyone involved believes it will be suitable. Contractors are hired, construction begins, problems arise, phone calls, meetings, site visits, emails, more phone calls, more meetings, etc until the building gets finished. Throughout ever step of the process from inception to completion one thing rings out, communication is key. There are few projects that go by where everyone is satisfied with the level of communication on a project. </p>
+            <p>ML and its tools for content creation and modification have great applications too speed up communication and offer visual clarity to problems that could be faced by everyone involved. Let’s start with the clients who want a building but are not sure what they want, which let’s face it is most clients. Arming them with tools to take their words into images which they can latch onto would be very helpful for the architect. Below I will show off a images generated by a computer based off of a prompt, the prompt will be the only thing I gave to the computer and the image will be what that computer gave in turn back to me. These are the first 9 images I get when I type each prompt I will not filter out and “bad” results. Each image took around 15 seconds to generate and is 512x512 pixels. </p>
+
+
+            <div class="image-row">
+                <div class="image-row-images">
+                    <div>
+                        <div>
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/lobby-atrium.png" alt="image from Stable Diffusion with the prompt 'lobby atrium with glass and a front desk, lots of light, modern aesthetic, sunlight'">
+                            <p class="caption">Image from Stable Diffusion with the prompt 'lobby atrium with glass and a front desk, lots of light, modern aesthetic, sunlight'</p>
+                        </div>
+                        <div>
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/glass-and-wood-building.png" alt="image from Stable Diffusion with the prompt 'front of glass and wood building at street level, san francisco city street, blue and white polkadot colored, realistic, front entrance'">
+                            <p class="caption">'front of glass and wood building at street level, san francisco city street, blue and white polkadot colored, realistic, front entrance'</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/moody-wood-panel.png" alt="image from Stable Diffusion with the prompt 'moody wood panel sitting area, shelves of books, comfortable seats'">
+                            <p class="caption">'moody wood panel sitting area, shelves of books, comfortable seats'</p>
+                        </div>
+                        <div>
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/nyc-office.png" alt="image from Stable Diffusion with the prompt 'new york city office, open floor plan, garden with flowers, glass partitions, archviz, archdaily, dreamy'">
+                            <p class="caption">'new york city office, open floor plan, garden with flowers, glass partitions, archviz, archdaily, dreamy'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>The longest part about making all these images was not typing in a prompt, or even letting the computer run to generate them, it was saving them all and putting them into a collage. It truly is that easy to create whatever you want as reference material. Same goes for architects pitching ideas to clients. Architects can now, with the help of a computer, pitch ideas to a client get feedback more quickly. No longer do architects need to waste time rendering images that will only get rejected. Clients and architects can easily and freely use these tools to help each other in the design process. Sure you could go to google images to find references, but sometimes the thing you want doesn’t exist. Like say a hotel on Mars in a lake, and since its cold on Mars lets also make it snowy.</p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/bright-hotel.png" alt="image from Stable Diffusion with the prompt 'bright hotel in the middle of a lake on mars, snowing, cold, archviz'">
+                            <p class="caption">'bright hotel in the middle of a lake on mars, snowing, cold, archviz'</p>
+                        </div>
+
+            <p>There is one inherit downside to this, anything specific and particular to a building or current project will not show up if I type it in a prompt. Like if I ask for “Old Main at night” I’m not going to get anything useful because the trained model doesn’t know what Old Main at Penn State looks like. It just wasn’t in the data set to a meaningful degree. But if you provide it a handful of images of Old Main and spend some time retraining the model, it will then be able to recognize the words “Old Main” in the prompt and give you what you want. And I did exactly that, I went to the lawn in front of Old Main and took photos across multiple days from multiple angles from different times of day. Then I retrained the model using a <a href="https://colab.research.google.com/github/ShivamShrirao/diffusers/blob/main/examples/dreambooth/DreamBooth_Stable_Diffusion.ipynb?authuser=1#scrollTo=WMCqQ5Tcdsm2" target="_blank">Google Colab</a> notebook. Here are some examples of what I was able to accomplish after training it for 4,000 steps, it took about an hour and a half.</p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-maincollage.png" alt="collage of images used in training Stable Diffusion to know what Old Main is">
+                            <p class="caption">The 22 photos I used to retrain the model, so when I ask for Old Main it will give something similar to these. Yes I realize one of the photos is rotated, the model was trained with that photo rotated and it didn’t seem to effect the results. </p>
+                        </div>
+
+            <p>So the model uses the phrase “old-main” and uses that as the key work to make images similar to the images titled old-main in the training set. I could have chosen anything but “old-main” is convenient. Below are some images I generated with some given prompts, the first few will be creative and fun, the latter will be me trying to push the model to give me more abstract and useful images, but it will struggle with visual clarity and coherence as I try to get further and further away from the training set. </p>
+            <p>To start, I’ll only ask it to generate images of “old-main” with variable strength. Strength determines how much it’ll conform to the prompt, so a lower value allows the model to be “creative” whereas a larger number will try to conform to the prompt more and be more strict about the result. The seed will be kept the same horizontally to help emphasis this. You can see that a scale between 6-10 is likely my sweet spot for realistic outputs. A scale too high tries too hard to fit the prompt and has unexpected results. Too low it gets the basic idea of what Old Main is but doesn’t try too hard to fill in all the details. These were all done at 20 samples.</p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/xy_grid-0000-1442434-old-main(1).jpg" alt="five by five grid to demonstrate the differences of strength for outputs">
+                            <p class="caption">Demonstration of the differences of strength for output while using the same "starting point" seed across the row</p>
+                        </div>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-struck-by-lightning.png" alt="three by three collage of the output from stable diffusion of old main being struck by lightning">
+                            <p class="caption">'old-main struck by lightning, lightning bolt, dark sky, bright lightning bolt'</p>
+                        </div>
+
+            <p>So what if I ask for a drone shot. One problem, if the model didn’t know what Old Main looked like before then how could it possibly know what surrounds Old Main. The answer is, it does not, so it makes it up. The results are pretty interesting with the one in the middle probably being the closest to being right. What is most impressive is the right wing of the building is mostly occluded by a willow tree in all of my training photos, yet it still assumes (correctly) that Old Main is a symmetrical building. </p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-drone-shot.jpg" alt="Stable Diffusion output of Old Main at Penn State as if it was a photo from a drone">
+                            <p class="caption">'looking down on old-main from a drone'</p>
+                        </div>
+
+            <p>How about I ask for winter photography, my training set doesn’t include any snow in it, so the model has no idea what Old Main looks like under snow, yet it still can figure it out fairly well. I included “black and white photography” to help also gain a sense for style and how it does it’s best but still includes some color in the photos. But for the most part these photos are pretty impressive, even if it struggles with how many pillars Old Main actually has (the correct answer is eight)</p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-winter.png" alt="three by three collage of Stable Diffusion output for Old Main in winter">
+                            <p class="caption">'old-main in a blizzard, historic blizzard photograph, black and white photography'</p>
+                        </div>
+
+            <p>But for instance if my prompt is “old-main as a gothic cathedral” the only things that seems to change is the focus goes to the clock tower and some of the images have a cross on top. Interesting result. Another thing to note is from all these 3x3 grids, these are the first 9 images it generates, I’m not handpicking them. Also it takes around 1 minute to get these 9 images, so it wouldn’t be much of a problem to just run it again with a tweaked prompt for better results. </p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-gothic-cathedral.jpg" alt="three by three collage of Stable Diffusion output for Old Main as a gothic cathedral">
+                            <p class="caption">'old-main as a gothic cathedral'</p>
+                        </div>
+
+            <p>For this prompt I had to turn the strength down to 1.5, as my prompts get more abstract I have to lower the strength and allow more degrees of freedom, otherwise I just get a regular old image of Old Main and nothing similar to my prompt. So this is what I get when I ask for “old-main covered in moss vines and flowers, green architecture, solarpunk, archdaily”. There is noticeably more greenery, but most of the images are not quite usable for anything. </p>
+
+                        <div class="img">
+                            <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-green.jpg" alt="three by three collage of Stable Diffusion output for Old Main with lots of greenery">
+                            <p class="caption">'old-main covered in moss vines and flowers, green architecture, solarpunk, archdaily'</p>
+                        </div>
+
+            <p>The inherent problem with prompts that “ask too much” comes from a couple of things. I used a faster method to train the model. This decreases the floating point precision of the training by half, which was a necessity to decrease the GPU VRAM requirement to below a Google Collabs maximum capability. Otherwise doing this would no longer be free and would cost money towards a subscription service. Also a more rigorous method would include hand labeling the images. Essentially I trained the computer to know what photos of Old Main look like and not what is in the photos of Old Main. Yes, the model has a sense of what a clock tower is and what a portico is, but not the essence of what they are. It as if I gave a bunch of photos of New York City to an alien who has never been to Earth, sure they may become great at reproducing those images and creating similar variations, but if you ask them what is in those photos or to change it to look more like Chicago they’ll have no idea what you are talking about. This is what the model is doing. By taking more closeups and labeling those photos differently, like “portico of Old Main” or “close-up of clock tower on Old Main” would allow for more defined prompts. At the same time also letting the model train for much longer than 4,000 steps would improve results. Upwards of 20,000 would be more ideal but takes proportionally longer. These are all problems that can be addressed but will continue to be barriers to entry for many people in architectural design and construction. However this will change. </p>
+            <p>Last year this level of fidelity wasn’t possible. 8 months ago it became possible but cost money. 2 months ago it became open sourced and accessible. And in the past month or so methods have become easy to use. I’m no programmer, I am a somewhat busy student and did this in my free time. Give actual programmers more time and money and I promise this will become 10x better in the coming years. I have not even discussed all the other uses this has. Look it up, just search Stable Diffusion, Dall-e, generative images and if you can’t think of a way this will be useful for architectural design or construction you are not thinking hard enough. I promise you that. </p>
+
+        </section>
+    </main>
+    <script defer src="/Scripts/settings.js"></script>
+</body>
+<footer>
+    <div>
+        <ul>
+            <li>
+                <a target="_blank" href="https://jasonkovalchick.substack.com">substack</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/jasonkovalchick/jasonkovalchick.github.io">github</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://twitter.com/jasonkovalchick">twitter</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+</html>
+

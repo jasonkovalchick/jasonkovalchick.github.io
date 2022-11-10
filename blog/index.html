@@ -17,10 +17,7 @@
     <meta name="robots" content="noindex, nofollow" />
 
     <script defer src="/Scripts/script.js"></script>
-    <script defer src="/Scripts/settings.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script async src="/Scripts/settings.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto+Mono:ital@0;1&family=Ubuntu:ital@0;1&display=swap" rel="stylesheet"> 
 
@@ -35,69 +32,65 @@
 
 </head>
 
-<div class="settings-cog" id="settings-menu">
-    <svg class="cog-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"/><path d="M3.34 17a10.018 10.018 0 0 1-.978-2.326 3 3 0 0 0 .002-5.347A9.99 9.99 0 0 1 4.865 4.99a3 3 0 0 0 4.631-2.674 9.99 9.99 0 0 1 5.007.002 3 3 0 0 0 4.632 2.672c.579.59 1.093 1.261 1.525 2.01.433.749.757 1.53.978 2.326a3 3 0 0 0-.002 5.347 9.99 9.99 0 0 1-2.501 4.337 3 3 0 0 0-4.631 2.674 9.99 9.99 0 0 1-5.007-.002 3 3 0 0 0-4.632-2.672A10.018 10.018 0 0 1 3.34 17zm5.66.196a4.993 4.993 0 0 1 2.25 2.77c.499.047 1 .048 1.499.001A4.993 4.993 0 0 1 15 17.197a4.993 4.993 0 0 1 3.525-.565c.29-.408.54-.843.748-1.298A4.993 4.993 0 0 1 18 12c0-1.26.47-2.437 1.273-3.334a8.126 8.126 0 0 0-.75-1.298A4.993 4.993 0 0 1 15 6.804a4.993 4.993 0 0 1-2.25-2.77c-.499-.047-1-.048-1.499-.001A4.993 4.993 0 0 1 9 6.803a4.993 4.993 0 0 1-3.525.565 7.99 7.99 0 0 0-.748 1.298A4.993 4.993 0 0 1 6 12c0 1.26-.47 2.437-1.273 3.334a8.126 8.126 0 0 0 .75 1.298A4.993 4.993 0 0 1 9 17.196zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="rgba(0,0,0,1)"/></svg>
+<button class="settings-cog" id="settings-cog" tabindex=0 aria-label="settings cog for font, theme, and font size">
+    <svg aria-label="settings cog svg" class="cog-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"/><path d="M3.34 17a10.018 10.018 0 0 1-.978-2.326 3 3 0 0 0 .002-5.347A9.99 9.99 0 0 1 4.865 4.99a3 3 0 0 0 4.631-2.674 9.99 9.99 0 0 1 5.007.002 3 3 0 0 0 4.632 2.672c.579.59 1.093 1.261 1.525 2.01.433.749.757 1.53.978 2.326a3 3 0 0 0-.002 5.347 9.99 9.99 0 0 1-2.501 4.337 3 3 0 0 0-4.631 2.674 9.99 9.99 0 0 1-5.007-.002 3 3 0 0 0-4.632-2.672A10.018 10.018 0 0 1 3.34 17zm5.66.196a4.993 4.993 0 0 1 2.25 2.77c.499.047 1 .048 1.499.001A4.993 4.993 0 0 1 15 17.197a4.993 4.993 0 0 1 3.525-.565c.29-.408.54-.843.748-1.298A4.993 4.993 0 0 1 18 12c0-1.26.47-2.437 1.273-3.334a8.126 8.126 0 0 0-.75-1.298A4.993 4.993 0 0 1 15 6.804a4.993 4.993 0 0 1-2.25-2.77c-.499-.047-1-.048-1.499-.001A4.993 4.993 0 0 1 9 6.803a4.993 4.993 0 0 1-3.525.565 7.99 7.99 0 0 0-.748 1.298A4.993 4.993 0 0 1 6 12c0 1.26-.47 2.437-1.273 3.334a8.126 8.126 0 0 0 .75 1.298A4.993 4.993 0 0 1 9 17.196zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="rgba(0,0,0,1)"/></svg>
+</button>
+<div class="settings-cog-menu" aria-hidden="true" aria-label="website appeareance settings menu" id="settings-menu" style="visibility: hidden;">
+
 </div>
-<div class="settings-cog-menu" aria-hidden="true" aria-label="website appeareance settings menu" id="settings-cog" style="right: -1000px;">
-    <ul>
-        <li>
-            Darkmode
-            <input id="darkmode-checkbox" type="checkbox" checked="checked">
-        </li>
-        <li>
-            <select id="font-select">
-                <option value="0">Serif</option>
-                <option value="1">Sans-Serif</option>
-                <option value="2">Monospace</option>
-            </select>
-        </li>
-        <li>
-            <select id="text-size-select">
-                <option value="1">Small</option>
-                <option value="0">Normal</option>
-                <option value="2">Large</option>
-            </select>
-        </li>
-    </ul>
-</div>
+<header>
+    <div class="header-content-box">
+        <h1>Jason Kovalchick</h1>
+        <div class="header-menu">
+            <a href="/home/">home</a>            
+            <a href="/about/">about</a>
+            <a href="/contact/">contact</a>
+            <a href="/portfolio/">portfolio</a>
+            <!-- <a href="">resume</a>
+            <a href="">info</a> -->
+        </div>
+    </div>
+    <div class="header-extra-box" id="extra-box">
+        <p></p>
+    </div>
+</header>
 <body>
-    <header>
-        <div class="header-content-box">
-            <h1>Jason Kovalchick</h1>
-            <div class="header-menu">
-                <a href="">about</a>
-                <a href="">contact</a>
-                <a href="">info</a>
-            </div>
-        </div>
-        <div class="header-extra-box">
-            <p>Random Info, Image, or Timeline</p>
-        </div>
-    </header>
     <main>
         <div id="post" class="post-container">
             <div class="post" style="flex-grow: 0;">
-                <div class="image"><img src="https://thumbs.dreamstime.com/b/standing-mallard-duck-drake-isolated-white-standing-mallard-duck-drake-isolated-white-background-117724920.jpg" alt="woman shooting a fish with a pistol while (the woman) is wearing a tux"></div>
-                <p class="caption">>Duck shooting a tux</p>
-                <h1>Duck Shoots Fish, Causes Uproar</h1>
-                <p class="intro">In an action distrubing to most people, a duck has taken violent action against a goldfish.</p>
-                <div class="link"><a href="">OPEN POST</a></div>
+
+                <div>
+                    <img src="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/content/old-main-winter.png" alt="Old Main at Penn State University in winter, generated by Stable Diffusion">
+                    <p class="caption">Generated photo of Old Main by Stable Diffusion</p>
+                    <div class="post-tags">
+                        <div class="tag"><p id="generative">#generative</p></div>
+                    </div>
+                    <h1>Role of ML and it’s Potential for Architectural Design</h1>
+                    <p class="intro">Showing off how generative models like Stable Diffusion can change communication between clients and designers.</p>
+
+                </div>
+
+                <div class="link"><a href="/blog/2022/role-of-ml-and-its-potential-for-architectural-design/">OPEN POST</a></div>
+
             </div>
-            <div class="post" style="flex-grow: 0;">
-                <img src="https://thumbs.dreamstime.com/b/standing-mallard-duck-drake-isolated-white-standing-mallard-duck-drake-isolated-white-background-117724920.jpg" alt="woman shooting a fish with a pistol while (the woman) is wearing a tux">
-                <p class="caption">>Duck shooting a tux</p>
-                <h1>Duck Shoots Fish, Causes Uproar</h1>
-                <p class="intro">In an action distrubing to most people, a duck has taken violent action against a goldfish.</p>
-            </div>
-            <div class="post" style="flex-grow: 0;">
-                <img src="https://thumbs.dreamstime.com/b/standing-mallard-duck-drake-isolated-white-standing-mallard-duck-drake-isolated-white-background-117724920.jpg" alt="woman shooting a fish with a pistol while (the woman) is wearing a tux">
-                <p class="caption">>Duck shooting a tux</p>
-                <h1>Duck Shoots Fish, Causes Uproar</h1>
-                <p class="intro">In an action distrubing to most people, a duck has taken violent action against a goldfish.</p>
-            </div>
-        </div>
+
+
     </main>
 </body>
-
+<footer>
+    <div>
+        <ul>
+            <li>
+                <a target="_blank" href="https://jasonkovalchick.substack.com">substack</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/jasonkovalchick/jasonkovalchick.github.io">github</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://twitter.com/jasonkovalchick">twitter</a>
+            </li>
+        </ul>
+    </div>
+</footer>
 </html>
 

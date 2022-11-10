@@ -1,0 +1,34 @@
+    <ul>
+        <li>
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select" role="combobox" aria-label="theme selector"  onchange="themeSelect(value)">
+                <option value="0">Light</option>
+                <option value="1">Dark</option>
+                <option value="2">Sepia</option>
+            </select>
+        </li>
+        <li>
+            <label for="font-select">Font:</label>
+            <select id="font-select" role="combobox" aria-label="font selector" onchange="fontSelect(value)">
+                <option value="0">Serif</option>
+                <option value="1">Sans-Serif</option>
+                <option value="2">Monospace</option>
+            </select>
+        </li>
+        <li>
+            <label for="text-size-select">Font Size:</label>
+            <select id="text-size-select" role="combobox" aria-label="font size selector" onchange="fontSizeSelect(value)">
+                <option value="1">Small</option>
+                <option value="0">Normal</option>
+                <option value="2">Large</option>
+            </select>
+        </li>
+        <li>
+            <label for="page-width-select">Page Width:</label>
+            <select id="page-width-select" role="combobox" aria-label="page width selector" onchange="pageWidthSelect(value)">
+                <option value="1">Small</option>
+                <option value="0">Normal</option>
+                <option value="2">Large</option>
+            </select>
+        </li>
+    </ul>

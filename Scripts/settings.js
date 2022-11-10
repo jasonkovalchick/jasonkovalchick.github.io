@@ -2,20 +2,22 @@ document.onload = onLoad();
             
 function onLoad() {
     const savedTheme = localStorage.getItem("theme");
+    var r = document.querySelector(':root');
 
-    if (savedTheme == "true") {
+    if (savedTheme == "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
-        document.getElementById("darkmode-checkbox").checked=true;
-        localStorage.setItem("theme","true")
+        localStorage.setItem("theme","dark")
 
-    } else if (savedTheme == "false") {
+    } else if (savedTheme == "light") {
         document.documentElement.setAttribute("data-theme", "light");
-        document.getElementById("darkmode-checkbox").checked=false;
-        localStorage.setItem("theme","false");
+        localStorage.setItem("theme","light");
+    } else if (savedTheme == "sepia") {
+        document.documentElement.setAttribute("data-theme", "sepia");
+        localStorage.setItem("theme","sepia");
     }
 
     const savedFont = localStorage.getItem("font-family");
-    var r = document.querySelector(':root');
+
     if (savedFont == "serif") {
         r.style.setProperty('font-family', 'Lora, serif');
 
@@ -26,7 +28,6 @@ function onLoad() {
         r.style.setProperty('font-family', 'Roboto, monospace'); 
     }
     const fontSizeText = localStorage.getItem("font-size");
-    var r = document.querySelector(':root');
 
     if (fontSizeText == "small") {
         r.style.fontSize = "75%";
@@ -37,89 +38,120 @@ function onLoad() {
     }   else if (fontSizeText == "large") {
         r.style.fontSize = "125%";
     }
-};
 
+    const pageWidth = localStorage.getItem("page-width");
+    let isMobile = window.matchMedia("only screen and (max-width: 480px)").matches;
+    console.log(isMobile);
+
+    if (isMobile == "true") {
+        if (pageWidth == "small") {
+            r.style.setProperty("--moblie-desktop-width",'10%');
+
+        }   else if (pageWidth == "normal") {
+            r.style.setProperty("--moblie-desktop-width",'17.5%');
+
+        }   else if (pageWidth == "large") {
+            r.style.setProperty("--moblie-desktop-width",'25%');
+        }
+
+    }
+};
     var menuOpen = false;
 
     document.addEventListener("DOMContentLoaded", function(event) {
-    var settingsMenu = document.getElementById("settings-menu");
+    var settingsMenu = document.getElementById("settings-cog");
     settingsMenu.onclick = function() {
 
         // console.log(menuOpen);
 
         if (menuOpen === false) {
 
-            document.getElementById("settings-cog").style.right = '';
-            document.getElementById("settings-cog").setAttribute('aria-hidden', 'false');
+            document.getElementById("settings-menu").style.visibility = 'visible';
+            document.getElementById("settings-menu").setAttribute('aria-hidden', 'false');
             menuOpen = true;
             // console.log("menu is now open")
 
         } else {
 
-            document.getElementById("settings-cog").style.right = "-1000px";
-            document.getElementById("settings-cog").setAttribute('aria-hidden', 'true');
+            document.getElementById("settings-menu").style.visibility = 'hidden';
+            document.getElementById("settings-menu").setAttribute('aria-hidden', 'true');
             menuOpen = false;
             // console.log("menu is now closed")
         }
     } 
  });
 
+var r = document.documentElement;
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-    var darkmodeCheckbox = document.getElementById("darkmode-checkbox");
-    darkmodeCheckbox.onclick = function() {
-        
-        const darkmodeState = localStorage.getItem("theme");
+function themeSelect(value) {
+    // console.log("is running")
+    if (value == 1) {
+        localStorage.setItem("theme","dark")
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else if (value == 0) {
+        localStorage.setItem("theme","light")
+        document.documentElement.setAttribute("data-theme", "light");
+    } else if (value == 2) {
+        localStorage.setItem("theme","sepia")
+        document.documentElement.setAttribute("data-theme", "sepia");
+    }
+}
 
-        if (darkmodeState == "true") {
-            localStorage.setItem("theme","false")
-            document.documentElement.setAttribute("data-theme", "light");
-        }
-        else {
-            localStorage.setItem("theme","true")
-            document.documentElement.setAttribute("data-theme", "dark");
-        }
-    } 
- });
+function fontSelect(value) {
+    // console.log(getElementById("root"));
+    // var r = document.documentElement;
+    if (value == 0) {
+        r.style.setProperty('font-family', 'Lora, serif');
+        localStorage.setItem("font-family","serif") 
+    }   else if (value == 1) {
+        r.style.setProperty('font-family', 'Ubunutu, sans-serif');
+        localStorage.setItem("font-family","sans-serif")  
+    }   else if (value == 2) {
+        r.style.setProperty('font-family', 'Roboto, monospace'); 
+        localStorage.setItem("font-family","monospace")
+    }
+}
 
-    document.getElementById("font-select").onchange = function(){
-    const fontValue = document.getElementById("font-select").value;
-        // console.log(fontValue);
-        var r = document.querySelector(':root');
-        if (fontValue == 0) {
+function fontSizeSelect(value) {
+    // var r = document.documentElement;
+    if (value == 1) {
+        r.style.fontSize = "75%";
+        localStorage.setItem("font-size","small"); 
+    }   else if (value == 0) {
+        r.style.fontSize = "100%";
+        localStorage.setItem("font-size","normal"); 
+    }   else if (value == 2) {
+        r.style.fontSize = "125%";
+        localStorage.setItem("font-size","large"); 
+    }
+}
 
-            r.style.setProperty('font-family', 'Lora, serif');
-            localStorage.setItem("font-family","serif") 
+function pageWidthSelect(value) {
+    // var r = document.documentElement;
+    if (value == 1) {
+        r.style.setProperty("--moblie-desktop-width","10%");
+        localStorage.setItem("page-width","small"); 
+    }   else if (value == 0) {
+        r.style.setProperty("--moblie-desktop-width","17.5%");
+        localStorage.setItem("page-width","normal"); 
+    }   else if (value == 2) {
+        r.style.setProperty("--moblie-desktop-width",'25%');
+        localStorage.setItem("page-width","large"); 
+    }
+}
 
-        }   else if (fontValue == 1) {
+function copyToClip() {
 
-            r.style.setProperty('font-family', 'Ubunutu, sans-serif');
-            localStorage.setItem("font-family","sans-serif")  
+    let url = window.location.href;
+    navigator.clipboard.writeText(url);
 
-        }   else if (fontValue == 2) {
+    let button = document.getElementById("copy-to-clip");
 
-            r.style.setProperty('font-family', 'Roboto, monospace'); 
-            localStorage.setItem("font-family","monospace")
-        }
-    };
+};
 
-    document.getElementById("text-size-select").onchange = function(){
-    const textSize = document.getElementById("text-size-select").value;
-        // console.log(textSize);
-        var r = document.querySelector(':root');
-        if (textSize == 1) {
+function openToTwitter() {
+    let url = window.location.href;
+    let title = document.getElementById("post-title").textContent;
 
-            r.style.fontSize = "75%";
-            localStorage.setItem("font-size","small"); 
-
-        }   else if (textSize == 0) {
-
-            r.style.fontSize = "100%";
-            localStorage.setItem("font-size","normal"); 
-
-        }   else if (textSize == 2) {
-
-            r.style.fontSize = "125%";
-            localStorage.setItem("font-size","large"); 
-        }
-    };
+    window.open("https://twitter.com/intent/tweet?text="+title+"&url="+url, '_blank').focus();
+}
