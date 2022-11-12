@@ -1,3 +1,0 @@
-<div class="header-extra-box">
-    <p>Random Info, Image, or Timeline</p>
-</div>

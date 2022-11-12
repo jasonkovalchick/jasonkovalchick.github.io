@@ -1,3 +1,9 @@
+Version 1.0.9.2.1
+-changed settings-cog away from an event listener in favor of an onclick() attribute
+-fixed bugs with substack link
+-fixed independant images being too large
+-other cosmetic updates
+
 Version 1.0.9.2
 -framework is nearly complete
 -blog is now live with first post

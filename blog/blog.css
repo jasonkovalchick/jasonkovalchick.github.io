@@ -129,9 +129,9 @@
 .settings-cog-menu ul {
   list-style-type: none;
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
+  border-color: var(--border-color);
   background-color: var(--background-color);
-  border-radius: 1rem;
 }
 .settings-cog-menu ul label {
   padding-bottom: 0.3rem;
@@ -150,7 +150,7 @@
   height: auto;
   font-size: 1.5rem;
   background-color: var(--background-color);
-  border: solid var(--font-color) 2px;
+  border: solid var(--border-color) 3px;
   border-radius: 10rem;
   padding: 0.25rem 0rem 0.25rem 1rem;
 }
@@ -243,10 +243,6 @@ body {
 }
 .post-container .post div .post-tags .tag {
   padding: 0.1rem 0.5rem 0.1rem 0.5rem;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 0.125rem;
-  border-color: var(--font-color);
   width: auto;
 }
 .post-container .post div .post-tags .tag p {
@@ -258,7 +254,6 @@ body {
 }
 .post-container .post div .caption {
   font-size: 1rem;
-  padding-left: 1rem;
   padding-top: 0.5rem;
 }
 .post-container .post div .intro {
@@ -291,13 +286,6 @@ button {
   text-shadow: 0px 0px 0px transparent;
 }
 
-.post-header {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-}
-
 .img {
   display: flex;
   justify-content: center;
@@ -306,6 +294,13 @@ button {
   padding: 0 calc(var(--moblie-desktop-width) / 0.65) 0 calc(var(--moblie-desktop-width) / 0.65);
   /* height: max-content;
   width: max-content; */
+}
+
+.post-header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 .post-header .caption {
   font-size: 1rem;

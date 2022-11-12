@@ -56,30 +56,48 @@ function onLoad() {
 
     }
 };
-    var menuOpen = false;
+//     var menuOpen = false;
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-    var settingsMenu = document.getElementById("settings-cog");
-    settingsMenu.onclick = function() {
+//     document.addEventListener("DOMContentLoaded", function(event) {
+//     var settingsMenu = document.getElementById("settings-cog");
+//     settingsMenu.onclick = function() {
 
-        // console.log(menuOpen);
+//         // console.log(menuOpen);
 
-        if (menuOpen === false) {
+//         if (menuOpen === false) {
 
-            document.getElementById("settings-menu").style.visibility = 'visible';
-            document.getElementById("settings-menu").setAttribute('aria-hidden', 'false');
-            menuOpen = true;
-            // console.log("menu is now open")
+//             document.getElementById("settings-menu").style.visibility = 'visible';
+//             document.getElementById("settings-menu").setAttribute('aria-hidden', 'false');
+//             menuOpen = true;
+//             // console.log("menu is now open")
 
-        } else {
+//         } else {
 
-            document.getElementById("settings-menu").style.visibility = 'hidden';
-            document.getElementById("settings-menu").setAttribute('aria-hidden', 'true');
-            menuOpen = false;
-            // console.log("menu is now closed")
-        }
-    } 
- });
+//             document.getElementById("settings-menu").style.visibility = 'hidden';
+//             document.getElementById("settings-menu").setAttribute('aria-hidden', 'true');
+//             menuOpen = false;
+//             // console.log("menu is now closed")
+//         }
+//     } 
+//  });
+
+var menuOpen = false;
+
+function openMenu() {
+    if (menuOpen === false) {
+        document.getElementById("settings-menu").style.visibility = 'visible';
+        document.getElementById("settings-menu").setAttribute('aria-hidden', 'false');
+        menuOpen = true;        
+    } else {
+
+        document.getElementById("settings-menu").style.visibility = 'hidden';
+        document.getElementById("settings-menu").setAttribute('aria-hidden', 'true');
+        menuOpen = false;
+        // console.log("menu is now closed")
+    }
+}
+
+
 
 var r = document.documentElement;
 
