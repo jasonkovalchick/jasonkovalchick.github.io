@@ -1,13 +1,40 @@
 document.onload = onLoad();
-            
+
 function onLoad() {
+
+    let ConvertStringToHTML = function (str) {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(str, 'text/html');
+        return doc.body;
+     };
+
+    fetch("/blog/settings-menu.txt")
+    .then(response => response.text())
+    .then((settingsMenu) => {
+    
+        newSettingsMenu = ConvertStringToHTML(settingsMenu);
+    
+        var oldSettingsMenu = document.getElementById('settings-menu');
+    
+        // console.log(oldExtraBox);
+        oldSettingsMenu.innerHTML = newSettingsMenu.innerHTML;
+    
+        // console.log(oldSettingsMenu);  
+    
+        // document.getElementById('settings-menu').appendChild(newSettingsMenu);
+    
+        // document.getElementById('settings-menu').innerHTML = newSettingsMenu;
+    
+        // console.log(document.getElementById('settings-menu').innerHTML);
+    
+    })
+
     const savedTheme = localStorage.getItem("theme");
     var r = document.querySelector(':root');
 
     if (savedTheme == "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme","dark")
-
+        localStorage.setItem("theme","dark");
     } else if (savedTheme == "light") {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("theme","light");

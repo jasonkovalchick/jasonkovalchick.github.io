@@ -1,3 +1,7 @@
+Version 1.0.9.3
+-added blog post '3d Scanning is Dead, All Hail the NeRF'
+-small fixes
+
 Version 1.0.9.2.1
 -changed settings-cog away from an event listener in favor of an onclick() attribute
 -fixed bugs with substack link

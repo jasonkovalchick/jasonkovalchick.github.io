@@ -22,26 +22,26 @@ fetch("/blog/extraheader.txt")
     // console.log(extraBox);  
 })
 
-fetch("/blog/settings-menu.txt")
-.then(response => response.text())
-.then((settingsMenu) => {
+// fetch("/blog/settings-menu.txt")
+// .then(response => response.text())
+// .then((settingsMenu) => {
 
-    newSettingsMenu = ConvertStringToHTML(settingsMenu);
+//     newSettingsMenu = ConvertStringToHTML(settingsMenu);
 
-    var oldSettingsMenu = document.getElementById('settings-menu');
+//     var oldSettingsMenu = document.getElementById('settings-menu');
 
-    // console.log(oldExtraBox);
-    oldSettingsMenu.innerHTML = newSettingsMenu.innerHTML;
+//     // console.log(oldExtraBox);
+//     oldSettingsMenu.innerHTML = newSettingsMenu.innerHTML;
 
-    // console.log(oldSettingsMenu);  
+//     // console.log(oldSettingsMenu);  
 
-    // document.getElementById('settings-menu').appendChild(newSettingsMenu);
+//     // document.getElementById('settings-menu').appendChild(newSettingsMenu);
 
-    // document.getElementById('settings-menu').innerHTML = newSettingsMenu;
+//     // document.getElementById('settings-menu').innerHTML = newSettingsMenu;
 
-    // console.log(document.getElementById('settings-menu').innerHTML);
+//     // console.log(document.getElementById('settings-menu').innerHTML);
 
-})
+// })
 
 };
 

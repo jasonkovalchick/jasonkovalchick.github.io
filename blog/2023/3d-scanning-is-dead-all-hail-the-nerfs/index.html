@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="font-size: 100%;" id="root">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-985K5YZDEY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-985K5YZDEY');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all" />
+
+    <script defer src="/Scripts/script.js"></script>
+    <script async src="/Scripts/settings.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto+Mono:ital@0;1&family=Ubuntu:ital@0;1&display=swap" rel="stylesheet"> 
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="/Favicon/site.webmanifest">
+
+    <link rel="stylesheet" type="text/css" href="/blog/blog.css">
+
+    <title>3D scanning is Dead, All Hail the NeRFs</title>
+
+</head>
+
+<button class="settings-cog" id="settings-cog" tabindex=0 aria-label="settings cog for font, theme, and font size" onclick="openMenu()">
+    <svg aria-label="settings cog svg" class="cog-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><title>Settings Menu</title><path fill="none" d="M0 0h24v24H0z"/><path d="M3.34 17a10.018 10.018 0 0 1-.978-2.326 3 3 0 0 0 .002-5.347A9.99 9.99 0 0 1 4.865 4.99a3 3 0 0 0 4.631-2.674 9.99 9.99 0 0 1 5.007.002 3 3 0 0 0 4.632 2.672c.579.59 1.093 1.261 1.525 2.01.433.749.757 1.53.978 2.326a3 3 0 0 0-.002 5.347 9.99 9.99 0 0 1-2.501 4.337 3 3 0 0 0-4.631 2.674 9.99 9.99 0 0 1-5.007-.002 3 3 0 0 0-4.632-2.672A10.018 10.018 0 0 1 3.34 17zm5.66.196a4.993 4.993 0 0 1 2.25 2.77c.499.047 1 .048 1.499.001A4.993 4.993 0 0 1 15 17.197a4.993 4.993 0 0 1 3.525-.565c.29-.408.54-.843.748-1.298A4.993 4.993 0 0 1 18 12c0-1.26.47-2.437 1.273-3.334a8.126 8.126 0 0 0-.75-1.298A4.993 4.993 0 0 1 15 6.804a4.993 4.993 0 0 1-2.25-2.77c-.499-.047-1-.048-1.499-.001A4.993 4.993 0 0 1 9 6.803a4.993 4.993 0 0 1-3.525.565 7.99 7.99 0 0 0-.748 1.298A4.993 4.993 0 0 1 6 12c0 1.26-.47 2.437-1.273 3.334a8.126 8.126 0 0 0 .75 1.298A4.993 4.993 0 0 1 9 17.196zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="rgba(0,0,0,1)"/></svg>
+</button>
+<div class="settings-cog-menu" aria-hidden="true" aria-label="website appeareance settings menu" id="settings-menu" style="visibility: hidden;">
+</div>
+<header>
+    <div class="header-content-box">
+        <h1>Jason Kovalchick</h1>
+        <div class="header-menu">
+            <a href="/">home</a>
+            <a href="/blog/">blog</a>
+            <a href="/about/">about</a>
+            <a href="/contact/">contact</a>
+            <a href="/portfolio/">portfolio</a>
+            <!-- <a href="">resume</a>
+            <a href="">info</a> -->
+            </div>
+    </div>
+    <div class="header-extra-box" id="extra-box">
+        <p></p>
+    </div>
+</header>
+<body>
+
+    <main>
+        <section class="post-header">
+        </section>
+
+        <section class="post-content">
+            <h1 id="post-title">3D scanning is Dead, All Hail the NeRFs</h1>
+            <div class="date-time-socialtags">
+                <p class="date-time">28 January 2023</p>
+                <div class="socialtags">
+                    <button aria-label="button to copy to clipboard" tabindex="0">
+                        <svg aria-label="svg of a paperclip" title="copy to clipboard" id="copy-to-clip" onClick="copyToClip()" aria-hidden="true" data-prefix="fal" data-icon="paperclip" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Copy to Clipboard</title><path fill="currentColor" d="M149.106 512c-33.076 0-66.153-12.59-91.333-37.771-50.364-50.361-50.364-132.305-.002-182.665L319.842 29.498c39.331-39.331 103.328-39.331 142.66 0 39.331 39.332 39.331 103.327 0 142.657l-222.63 222.626c-28.297 28.301-74.347 28.303-102.65 0-28.3-28.301-28.3-74.349 0-102.649l170.301-170.298c4.686-4.686 12.284-4.686 16.97 0l5.661 5.661c4.686 4.686 4.686 12.284 0 16.971l-170.3 170.297c-15.821 15.821-15.821 41.563.001 57.385 15.821 15.82 41.564 15.82 57.385 0l222.63-222.626c26.851-26.851 26.851-70.541 0-97.394-26.855-26.851-70.544-26.849-97.395 0L80.404 314.196c-37.882 37.882-37.882 99.519 0 137.401 37.884 37.881 99.523 37.882 137.404.001l217.743-217.739c4.686-4.686 12.284-4.686 16.97 0l5.661 5.661c4.686 4.686 4.686 12.284 0 16.971L240.44 474.229C215.26 499.41 182.183 512 149.106 512z" class=""></path></svg>
+                    </button>
+                    <button aria-label="button to article on substack" tabindex="0">
+                        <!-- <a href="https://jasonkovalchick.substack.com/p/role-of-ml-and-its-potential-for?sd=pf" target="_blank"><svg aria-label="svg of substack logo" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Substack</title><path fill="currentColor" d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a> -->
+                    </button>
+                    <button aria-label="button to share to twitter" tabindex="0" onClick="openToTwitter()">
+                        <svg aria-label="svg of twitter logo" viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg"><title>Share to Twitter</title><path  fill="currentColor" d="M 630, 425A 195, 195 0 0 1 331, 600A 142, 142 0 0 0 428, 570A  70,  70 0 0 1 370, 523A  70,  70 0 0 0 401, 521A  70,  70 0 0 1 344, 455A  70,  70 0 0 0 372, 460A  70,  70 0 0 1 354, 370A 195, 195 0 0 0 495, 442A  67,  67 0 0 1 611, 380A 117, 117 0 0 0 654, 363A  65,  65 0 0 1 623, 401A 117, 117 0 0 0 662, 390A  65,  65 0 0 1 630, 425Z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+        <p>Neural Radiance Fields (NeRF) is the next big thing for visualizing the world around us. It is more powerful than Lidar/Laser/Aerial scanning on its own. NeRF has the ability to synthesize new views and fill in the gaps from photos or videos and create a much cleaner and more visually appealing output than what is being used today.</p>
+        <h2>Current State of Things</h2>
+        <p>A 360-degree field of view camera is the most basic form of site documentation. It can be mounted on a stick or stand, and a photo is taken. This photo captures the entire room, but it is limited in that you cannot move around the room and are stuck with the 360-degree view. This type of documentation works in all stages of construction, but it can be limiting.</p>
+        <p>That is where photogrammetry comes in, by either using an iPad with a lidar scanner or a laser scanner we can create a 3D room. An iPad isn't that expensive and gives an acceptable output in terms of a 3D model; it is functional and works, but the measurements are not reliable. A laser scanner is very expensive but gives a great output and is precise and reliable for measurements. However, both of them are slow to capture. In terms of carefully moving an iPad around or carefully setting up a laser scanner, it takes time to do this documentation. On top of that, the data requirements of photogrammetry are large; each room can be hundreds of photos and each model can have hundreds of thousands, if not millions, of vertices. Usually, the output is not perfect as well and requires cleanup to be actually workable. Nobody has time for this, which is why it is not used as often as 360-degree photos.</p>
+        <h2>The New Thing</h2>
+        <p>Neural Radiance Fields (NeRFs) and the next thing and many of your apps will update to using them instead of photogrammetry or Lidar. But what are they? Let’s start by defining photogrammetry and lidar so the difference can be better understood.</p>
+        <p>So photogrammetry does its magic by taking a series of photos, comparing them to each other, finding points of interest in the photos, and using that information to determine where the camera is taking the photos. Now that the computer knows where the camera is it can work backwards and use math to determine the depth of objects in the photos and create a point cloud and mesh.</p>
+        <p>Lidar works by using a Light Detection and Ranging (Lidar) module to do exactly what it says. Using infrared light and small movements the computer can take the depth information from the Lidar module and use parallax to find depth precisely. This is advantages over simple photogrammetry in most cases as it is using a module specifically designed for depth finding. Also the lidar scanners on iPad and iPhone are limiting in that their range is around 10ft.</p>
+        <p>Laser scanning works in the same way as lidar, using lasers (instead of lidar modules) and cameras to determine depth data very precisely. However, laser scanners are very expensive and more often can work for much larger areas than consumer lidar products.</p>
+        <p>NeRFs do not use lidar or laser scanning modules. Instead, they use photos like photogrammetry, but the way they process them is different. NeRFs take the photos and solve for position using machine learning. For each position found from the photos, a point is created, which is where the term "point cloud" comes from. In photogrammetry, these points are fused together into a 3D mesh. When creating a NeRF, this doesn't happen. Instead, each point gets its own vertex color that corresponds to the viewer's perspective. This is how NeRFs are able to do reflections, shadows, and transparency. Still, a NeRF can be converted to a mesh, but it loses the advantages of being a NeRF.</p>
+        <p>If you did not understand that, don’t worry, it is not something simple to understand. It is a lot better to observe the differences and see for yourself why NeRF is far better than any other 3d method out there. Linked <a href="https://youtu.be/YX5AoaWrowY">here</a>, and also embeded below, is a great video by Corridor Digital showing off how NeRFs will be amazing for the VFX and movie industry. So while the ideas and uses might not line up for architectural design and engineering, the concepts still work, and after all VFX and movie making is the art of telling a story and effective communication, something that is applicable in every industry.</p>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <iframe style="height: 300px; width: 500px;" src="https://www.youtube-nocookie.com/embed/YX5AoaWrowY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <p>Another note and something to consider if you did not watch that video, which I very much recommend you do (it showcases some great examples) is that NeRFs are very much in the early stages of growth. This means workflows for it do not yet exist. But I do have a few predictions. <a href="https://poly.cam/">Polycam</a> which is a great phone or tablet based photogrammetry app recently started working on implement NeRFs. Another startup <a href="https://lumalabs.ai/">Luma AI</a> has their business based on making NeRFs accessible and provides an app and API to make this happen. Since the method for capturing NeRFs and photogrammetry based models or point clouds is similar I can see many other apps also following suit. So keep an eye out for updates from the developers for the apps you use.</p>
+        <p>The benefits are quite obvious for how useful these can be going into the future not just for construction but also for showing off virtual scenes from Twinmotion or other rendering tools in a lightweight manner. Reflections and transparency can add so much to a persons understanding of a scene since it is much more realistic than a static 3D model.</p>
+        <p>Please click this <a href="https://twitter.com/hashtag/instantNerf?src=hashtag_click">link</a> and scroll for a bit, just think about how something like this could be of use to you or on your project.</p>
+
+        <p>Also here's some examples from Luma AI, note the three different modes in the bottom, the first is a true 3D model with a shader that simulates light reflections, the second mode is a true NeRF that uses the point cloud directly for lighting, and the third is a rendered video using the NeRF.</p>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <iframe src="https://captures.lumalabs.ai/embed/teleporting-hippo-9m-256?mode=slf&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=true" width="375" height="500" frameborder="0" title="luma embed" style="border: none;"></iframe>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <iframe src="https://captures.lumalabs.ai/embed/admirably-electrify-v4-94726?mode=lf&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=true" width="889" height="500" frameborder="0" title="luma embed" style="border: none;"></iframe>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <iframe src="https://captures.lumalabs.ai/embed/authoritative-dextrous-nd-5686?mode=video&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=true" width="889" height="500" frameborder="0" title="luma embed" style="border: none;"></iframe>
+        </div>
+
+        </section>
+    </main>
+    <script defer src="/Scripts/settings.js"></script>
+</body>
+<footer>
+    <div>
+        <ul>
+            <li>
+                <a target="_blank" href="https://jasonkovalchick.substack.com">substack</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/jasonkovalchick/jasonkovalchick.github.io">github</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://twitter.com/jasonkovalchick">twitter</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+</html>
+
