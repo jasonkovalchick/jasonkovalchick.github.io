@@ -1,3 +1,37 @@
+const request = new XMLHttpRequest();
+const url = "http://realtime.catabus.com/InfoPoint/rest/stopdepartures/get/285";
+
+request.open("GET", url, true);
+
+request.onreadystatechange = function() {
+  if (request.readyState === 4 && request.status === 200) {
+    const xmlDoc = request.responseXML;
+    const departures = xmlDoc.getElementsByTagName("Departure");
+
+    const departureData = [];
+    for (let i = 0; i < departures.length; i++) {
+      const internalSignDesc = departures[i].getElementsByTagName("InternalSignDesc")[0].textContent;
+      const ETA = departures[i].getElementsByTagName("ETA")[0].textContent;
+      departureData.push({ InternalSignDesc: internalSignDesc, ETA: ETA });
+    }
+    console.log(departureData);
+  }
+};
+
+request.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
 // fetch('http://realtime.catabus.com/InfoPoint/rest/stopdepartures/get/285')
 
 
@@ -11,12 +45,12 @@
 //       )
 
 
-fetch("http://realtime.catabus.com/InfoPoint/rest/stops/getallstops").then(
-function(u){ return u.json();}
-).then(
-function(json){
-data_function(json); //calling and passing json to another function data_function
-})
+// fetch("http://realtime.catabus.com/InfoPoint/rest/stops/getallstops").then(
+// function(u){ return u.json();}
+// ).then(
+// function(json){
+// data_function(json); //calling and passing json to another function data_function
+// })
 
 
 // //another functions
@@ -36,17 +70,17 @@ data_function(json); //calling and passing json to another function data_functio
 //     }
 //   };
 
-function data_function(obj) {
-    console.log(Object.keys(obj[1])[1])
-} 
+// function data_function(obj) {
+//     console.log(Object.keys(obj[1])[1])
+// } 
     
 
 
-var img = document.createElement("img");
-img.src = "assets/portfoliobg.png";
+// var img = document.createElement("img");
+// img.src = "assets/portfoliobg.png";
 
-var div = document.getElementById("x");
-div.appendChild(img);
+// var div = document.getElementById("x");
+// div.appendChild(img);
 
 
 

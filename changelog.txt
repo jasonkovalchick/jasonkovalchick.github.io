@@ -1,3 +1,7 @@
+Version 1.0.9.4
+-added blog post 'Chatbot Uses for Building Design'
+-small fixes
+
 Version 1.0.9.3
 -added blog post '3d Scanning is Dead, All Hail the NeRF'
 -small fixes

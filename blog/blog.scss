@@ -454,14 +454,36 @@ button {
     }
   }
 
+  ul {
+    padding-left: 2rem;
+    font-size: 1.3rem;
+    li {
+      font-size: 1.3rem;
+      /* styles for top-level <ul> */
+    }
+    
+    ul {
+      /* styles for nested <ul> */
+      margin-left: 1rem; /* adjust as needed */
+    }
+  }
+  
+
   h1 {
     padding-top: 0.5rem;
     font-size: 4rem;
   }
+
   h2 {
     font-size: 2rem;
     padding: 0.5rem 0 0.5rem 0;
   }
+
+  h3 {
+    font-size: 1.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
     p {
     font-size: 1.3rem;
     text-indent: 2rem;
@@ -479,6 +501,18 @@ button {
       justify-content: center;
       width: auto;
     }
+  }
+
+  th, td {
+    border: 1px solid var(--font-color);
+  }
+
+  table {
+      padding: 1rem;
+  }
+
+  td {
+      padding: 0.25rem;
   }
 
   .quote-element {
