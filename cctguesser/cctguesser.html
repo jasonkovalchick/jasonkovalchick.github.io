@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Temperature Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      transition: background-color 0.5s ease; /* Smooth transition when color changes */
+    }
+    .content {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for better readability */
+      padding: 20px;
+      border-radius: 10px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+    .slider-container, .input-container {
+      width: 300px;
+      text-align: center;
+
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+    .input-field {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <h1>Guess the Color Temperature</h1>
+
+    <!-- Slider for input -->
+    <div class="slider-container">
+      <input type="range" min="2000" max="6500" value="2000" class="slider" id="tempSlider">
+      <p>Guess the temperature using the slider: <span id="sliderValue">2000K</span></p>
+    </div>
+
+    <!-- Text input for manual input -->
+    <div class="input-container">
+      <p>Or type your guess:</p>
+      <input type="number" min="2000" max="6500" id="manualInput" class="input-field" placeholder="Enter value (2000K - 6500K)">
+    </div>
+
+    <button onclick="submitGuess()">Submit Guess</button>
+
+    <div class="result" id="result"></div>
+
+    <button id="newGameBtn" style="display:none; margin-top: 20px;" onclick="startNewGame()">Try Again</button>
+  </div>
+
+  <script>
+    // Generate random temperature between 2000K and 6500K
+    let actualTemperature = Math.floor(Math.random() * (6500 - 2000 + 1)) + 2000;
+
+    // Function to convert temperature to RGB color (approximated)
+    function temperatureToColor(kelvin) {
+      let temp = kelvin / 100;
+      let red, green, blue;
+
+      // Calculate red
+      if (temp <= 66) {
+        red = 255;
+      } else {
+        red = temp - 60;
+        red = 329.698727446 * Math.pow(red, -0.1332047592);
+        if (red < 0) red = 0;
+        if (red > 255) red = 255;
+      }
+
+      // Calculate green
+      if (temp <= 66) {
+        green = temp;
+        green = 99.4708025861 * Math.log(green) - 161.1195681661;
+        if (green < 0) green = 0;
+        if (green > 255) green = 255;
+      } else {
+        green = temp - 60;
+        green = 288.1221695283 * Math.pow(green, -0.0755148492);
+        if (green < 0) green = 0;
+        if (green > 255) green = 255;
+      }
+
+      // Calculate blue
+      if (temp >= 66) {
+        blue = 255;
+      } else {
+        if (temp <= 19) {
+          blue = 0;
+        } else {
+          blue = temp - 10;
+          blue = 138.5177312231 * Math.log(blue) - 305.0447927307;
+          if (blue < 0) blue = 0;
+          if (blue > 255) blue = 255;
+        }
+      }
+
+      return `rgb(${Math.round(red)}, ${Math.round(green)}, ${Math.round(blue)})`;
+    }
+
+    // Set the background color to the random temperature
+    function setBackgroundToTemperature() {
+      document.body.style.backgroundColor = temperatureToColor(actualTemperature);
+    }
+
+    setBackgroundToTemperature();
+
+    // Update slider value display
+    const tempSlider = document.getElementById("tempSlider");
+    const sliderValueDisplay = document.getElementById("sliderValue");
+    tempSlider.oninput = function() {
+      sliderValueDisplay.textContent = `${this.value}K`;
+    };
+
+    // Function to handle guess submission
+    function submitGuess() {
+      const sliderGuess = parseInt(tempSlider.value);
+      const manualInput = document.getElementById("manualInput").value;
+      const guess = manualInput ? parseInt(manualInput) : sliderGuess; // Use manual input if available
+      const resultDisplay = document.getElementById("result");
+      const newGameBtn = document.getElementById("newGameBtn");
+
+      // Ensure valid guess
+      if (guess < 2000 || guess > 6500) {
+        resultDisplay.textContent = "Please enter a value between 2000K and 6500K.";
+        return;
+      }
+
+      const difference = Math.abs(actualTemperature - guess);
+
+      let resultMessage;
+      if (difference === 0) {
+        resultMessage = `Perfect! You guessed the exact temperature (${actualTemperature}K)!`;
+      } else if (difference <= 100) {
+        resultMessage = `Very close! The actual temperature was ${actualTemperature}K. Difference: ${difference}K.`;
+      } else {
+        resultMessage = `Not quite! The actual temperature was ${actualTemperature}K. Difference: ${difference}K.`;
+      }
+
+      resultDisplay.textContent = resultMessage;
+      newGameBtn.style.display = 'block'; // Show the "Try Again" button
+    }
+
+    // Function to start a new game with a new random temperature
+    function startNewGame() {
+      actualTemperature = Math.floor(Math.random() * (6500 - 2000 + 1)) + 2000;
+      setBackgroundToTemperature();
+      document.getElementById("result").textContent = "";
+      document.getElementById("newGameBtn").style.display = 'none';
+      tempSlider.value = 2000; // Reset slider to minimum value
+      sliderValueDisplay.textContent = "2000K"; // Reset displayed slider value
+      document.getElementById("manualInput").value = ''; // Clear manual input
+    }
+  </script>
+
+</body>
+</html>

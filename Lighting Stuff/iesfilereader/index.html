@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html style="background-color: #1d1d1d; color: #ffffff;">
+<head>
+
+    <meta charset="utf-8">
+    <title>Luminaire Viewer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="iesreader.js"></script>
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+    {
+        "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="/Lighting Stuff/iesfilereader/main.js"></script>
+
+</head>
+
+
+
+
+<body>
+<main>
+<!-- First Container For Import and Viewer -->
+<!-- Should also bring up details about the luminaire -->
+<div class="viewer-section">
+    <div class="left-side">
+        <form>
+            <label for="file-input">Choose a file:</label>
+            <input type="file" id="file-input">
+            <button type="submit">Submit</button>
+          </form>          
+        <div class="lum-details">
+            <table id="lum-table">
+            </table>              
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="graph-viewer" id="3d-viewer"></div>
+    </div>
+</div>
+
+
+
+
+</main>
+</body>
+
+</html>
