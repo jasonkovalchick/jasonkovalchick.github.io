@@ -1,3 +1,9 @@
+Version 1.0.9.5
+-added second chance and incorect answer to cctguesser
+
+Version 1.0.9.5
+-added cctguesser
+
 Version 1.0.9.4
 -added blog post 'Chatbot Uses for Building Design'
 -small fixes

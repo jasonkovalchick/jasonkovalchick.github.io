@@ -14,25 +14,21 @@
       height: 100vh;
       margin: 0;
       background-color: #f4f4f4;
-      transition: background-color 0.5s ease; /* Smooth transition when color changes */
+      transition: background-color 0.5s ease;
     }
     .content {
       text-align: center;
-      background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for better readability */
+      background-color: rgba(255, 255, 255, 0.7);
       padding: 20px;
       border-radius: 10px;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-
     }
     .slider-container, .input-container {
       width: 300px;
       text-align: center;
-
     }
     .result {
       margin-top: 20px;
@@ -41,9 +37,48 @@
     .input-field {
       margin: 10px;
     }
+    /* Hamburger Menu Styling */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .menu input {
+      margin-right: 5px;
+    }
+    .color-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-top: 20px;
+      border: 1px solid #333;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <!-- Hamburger Menu -->
+  <div class="menu" id="menu">
+    <label>
+      <input type="checkbox" id="secondChanceCheckbox">
+      Enable second chance (with higher/lower hint)
+    </label>
+  </div>
 
   <div class="content">
     <h1>Guess the Color Temperature</h1>
@@ -64,89 +99,88 @@
 
     <div class="result" id="result"></div>
 
+    <!-- Guess Color Circle -->
+    <div id="guessColor" class="color-circle" style="display:none;"></div>
+
     <button id="newGameBtn" style="display:none; margin-top: 20px;" onclick="startNewGame()">Try Again</button>
   </div>
 
   <script>
-    // Generate random temperature between 2000K and 6500K
     let actualTemperature = Math.floor(Math.random() * (6500 - 2000 + 1)) + 2000;
+    let secondChanceUsed = false;
 
-    // Function to convert temperature to RGB color (approximated)
     function temperatureToColor(kelvin) {
       let temp = kelvin / 100;
       let red, green, blue;
-
-      // Calculate red
       if (temp <= 66) {
         red = 255;
       } else {
         red = temp - 60;
         red = 329.698727446 * Math.pow(red, -0.1332047592);
-        if (red < 0) red = 0;
-        if (red > 255) red = 255;
+        red = Math.min(255, Math.max(0, red));
       }
-
-      // Calculate green
       if (temp <= 66) {
         green = temp;
         green = 99.4708025861 * Math.log(green) - 161.1195681661;
-        if (green < 0) green = 0;
-        if (green > 255) green = 255;
+        green = Math.min(255, Math.max(0, green));
       } else {
         green = temp - 60;
         green = 288.1221695283 * Math.pow(green, -0.0755148492);
-        if (green < 0) green = 0;
-        if (green > 255) green = 255;
+        green = Math.min(255, Math.max(0, green));
       }
-
-      // Calculate blue
-      if (temp >= 66) {
-        blue = 255;
-      } else {
-        if (temp <= 19) {
-          blue = 0;
-        } else {
-          blue = temp - 10;
-          blue = 138.5177312231 * Math.log(blue) - 305.0447927307;
-          if (blue < 0) blue = 0;
-          if (blue > 255) blue = 255;
-        }
-      }
-
+      blue = temp >= 66 ? 255 : (temp <= 19 ? 0 : 138.5177312231 * Math.log(temp - 10) - 305.0447927307);
+      blue = Math.min(255, Math.max(0, blue));
       return `rgb(${Math.round(red)}, ${Math.round(green)}, ${Math.round(blue)})`;
     }
 
-    // Set the background color to the random temperature
     function setBackgroundToTemperature() {
       document.body.style.backgroundColor = temperatureToColor(actualTemperature);
     }
-
     setBackgroundToTemperature();
 
-    // Update slider value display
     const tempSlider = document.getElementById("tempSlider");
     const sliderValueDisplay = document.getElementById("sliderValue");
     tempSlider.oninput = function() {
       sliderValueDisplay.textContent = `${this.value}K`;
     };
 
-    // Function to handle guess submission
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "none" ? "block" : "none";
+    }
+
     function submitGuess() {
       const sliderGuess = parseInt(tempSlider.value);
       const manualInput = document.getElementById("manualInput").value;
-      const guess = manualInput ? parseInt(manualInput) : sliderGuess; // Use manual input if available
+      const guess = manualInput ? parseInt(manualInput) : sliderGuess;
       const resultDisplay = document.getElementById("result");
       const newGameBtn = document.getElementById("newGameBtn");
 
-      // Ensure valid guess
       if (guess < 2000 || guess > 6500) {
         resultDisplay.textContent = "Please enter a value between 2000K and 6500K.";
         return;
       }
 
       const difference = Math.abs(actualTemperature - guess);
+      let resultMessage = "";
+      const secondChanceEnabled = document.getElementById("secondChanceCheckbox").checked;
 
-      let resultMessage;
+      // Check if the second chance is enabled and if they have already used their second chance
+      if (secondChanceEnabled && !secondChanceUsed && difference !== 0) {
+        // Use the second chance
+        secondChanceUsed = true;
+
+        // Show hint whether to guess higher or lower
+        if (guess < actualTemperature) {
+          resultMessage = "Incorrect guess ⬆️ (Try guessing higher)";
+        } else {
+          resultMessage = "Incorrect guess ⬇️ (Try guessing lower)";
+        }
+
+        resultDisplay.textContent = resultMessage;
+        return; // Exit to allow for a second guess
+      }
+
       if (difference === 0) {
         resultMessage = `Perfect! You guessed the exact temperature (${actualTemperature}K)!`;
       } else if (difference <= 100) {
@@ -155,19 +189,25 @@
         resultMessage = `Not quite! The actual temperature was ${actualTemperature}K. Difference: ${difference}K.`;
       }
 
+      // Show the guessed color in the circle
+      const guessColor = document.getElementById("guessColor");
+      guessColor.style.backgroundColor = temperatureToColor(guess);
+      guessColor.style.display = 'block';
+
       resultDisplay.textContent = resultMessage;
-      newGameBtn.style.display = 'block'; // Show the "Try Again" button
+      newGameBtn.style.display = 'block';
     }
 
-    // Function to start a new game with a new random temperature
     function startNewGame() {
       actualTemperature = Math.floor(Math.random() * (6500 - 2000 + 1)) + 2000;
       setBackgroundToTemperature();
       document.getElementById("result").textContent = "";
       document.getElementById("newGameBtn").style.display = 'none';
-      tempSlider.value = 2000; // Reset slider to minimum value
-      sliderValueDisplay.textContent = "2000K"; // Reset displayed slider value
-      document.getElementById("manualInput").value = ''; // Clear manual input
+      document.getElementById("guessColor").style.display = 'none';
+      tempSlider.value = 2000;
+      sliderValueDisplay.textContent = "2000K";
+      document.getElementById("manualInput").value = '';
+      secondChanceUsed = false;
     }
   </script>
 
