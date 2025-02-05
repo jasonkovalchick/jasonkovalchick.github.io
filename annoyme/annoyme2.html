@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Memory Game</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 10px;
+      margin: 50px auto;
+      width: 340px;
+    }
+    .grid-item {
+      width: 100px;
+      height: 100px;
+      background-color: lightgray;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .active {
+      background-color: yellow;
+    }
+    #status {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pattern Memory Game</h1>
+  <div class="grid-container">
+    <div class="grid-item" data-id="0"></div>
+    <div class="grid-item" data-id="1"></div>
+    <div class="grid-item" data-id="2"></div>
+    <div class="grid-item" data-id="3"></div>
+    <div class="grid-item" data-id="4"></div>
+    <div class="grid-item" data-id="5"></div>
+    <div class="grid-item" data-id="6"></div>
+    <div class="grid-item" data-id="7"></div>
+    <div class="grid-item" data-id="8"></div>
+  </div>
+  <div id="status">Repeat the pattern!</div>
+
+  <script>
+    const gridItems = document.querySelectorAll('.grid-item');
+    let pattern = [];
+    let playerPattern = [];
+    let level = 1;
+    let isGameActive = false;
+    let currentIndex = 0;
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    function blinkPattern() {
+      let i = 0;
+      const blinkInterval = setInterval(() => {
+        // Blink the current block
+        gridItems[pattern[i]].classList.add('active');
+        setTimeout(() => {
+          gridItems[pattern[i]].classList.remove('active');
+        }, 500);
+
+        i++;
+        if (i >= pattern.length) {
+          clearInterval(blinkInterval);
+          isGameActive = true;
+          document.getElementById('status').textContent = 'Your turn!';
+        }
+      }, 1000);
+    }
+
+    function generatePattern() {
+      pattern = [];
+      for (let i = 0; i < level; i++) {
+        pattern.push(getRandomInt(9));
+      }
+    }
+
+    function handlePlayerInput(event) {
+      if (!isGameActive) return;
+
+      const id = event.target.getAttribute('data-id');
+      playerPattern.push(parseInt(id));
+
+      blinkBlock(id);
+
+      if (playerPattern.length === pattern.length) {
+        checkPattern();
+      }
+    }
+
+    function blinkBlock(id) {
+      // Blink the tapped block
+      gridItems[id].classList.add('active');
+      setTimeout(() => {
+        gridItems[id].classList.remove('active');
+      }, 500);
+    }
+
+    function checkPattern() {
+      if (JSON.stringify(playerPattern) === JSON.stringify(pattern)) {
+        level++;
+        playerPattern = [];
+        if (level > 5) {
+          window.location.href = 'https://youtube.com';
+        } else {
+          document.getElementById('status').textContent = `Level ${level}! Repeat the pattern!`;
+          generatePattern();
+          setTimeout(blinkPattern, 1000);
+        }
+      } else {
+        document.getElementById('status').textContent = 'Incorrect pattern! Try again.';
+        playerPattern = [];
+      }
+    }
+
+    gridItems.forEach(item => item.addEventListener('click', handlePlayerInput));
+
+    function startGame() {
+      document.getElementById('status').textContent = 'Get ready!';
+      setTimeout(() => {
+        generatePattern();
+        setTimeout(blinkPattern, 1000);
+      }, 1000);
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
